@@ -2,6 +2,7 @@
 require 'helpers/validations'
 require 'helpers/cart'
 require 'helpers/shipping'
+require 'helpers/baking'
 
 # create BreadExpressHelpers
 module BreadExpressHelpers
