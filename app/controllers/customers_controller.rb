@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   include ActionView::Helpers::NumberHelper
-  before_action :check_login, except: [:new]
+    before_action :check_login, except: [:new, :create]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   authorize_resource
   
@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-
+    user  = @customer.build_user
   end
 
   def edit
@@ -27,16 +27,25 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
+      user = @customer.build_user
     if @customer.save
-      redirect_to @customer, notice: "#{@customer.proper_name} was added to the system."
+        #start a new session
+        #set current user
+        @customer.user_id = user.id
+        user.role = "customer"
+        user.save
+        session[:user_id] = @customer.user_id
+        redirect_to home_path, notice: "#{@customer.proper_name} was added to the system."
     else
-      render action: 'new'
+      flash[:error] = "This user could not be created."
+      render "new"
     end
   end
+    
 
   def update
     # just in case customer trying to hack the http request...
-    reset_username_param unless current_user.role? :admin
+#    reset_username_param unless current_user.role? :admin
     if @customer.update(customer_params)
       redirect_to @customer, notice: "#{@customer.proper_name} was revised in the system."
     else
@@ -50,10 +59,11 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    reset_role_param unless current_user.role? :admin
-    params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active)
+#    reset_role_param unless current_user.role? :admin
+      params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active, user_attributes: [:id, :username, :password, :password_confirmation, :_destroy] )
   end
-
+    
+    #don't worry about these 
   def reset_role_param
     params[:customer][:user_attributes][:role] = "customer"
   end

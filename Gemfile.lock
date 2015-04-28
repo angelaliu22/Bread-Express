@@ -111,6 +111,8 @@ GEM
       addressable (~> 2.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    materialize-sass (0.95.2)
+      sass (~> 3.1)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -231,6 +233,7 @@ DEPENDENCIES
   jquery-rails (= 3.1.0)
   jquery-ui-rails (= 5.0.3)
   launchy
+  materialize-sass
   meta_request (= 0.3.4)
   mocha (= 1.1.0)
   nested_form (= 0.3.2)

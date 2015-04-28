@@ -9,8 +9,176 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require font-awesome.min
- *= require foundation_and_overrides
- *= require simple_form
  *= require jquery-ui
+ *= require materialize
+ *= require_tree .
  */
+
+/*GENERAL*/
+
+#main_content {
+    font-size: 100%;
+    min-height: 580px;
+    width: 100%;
+    margin: 0 auto;
+}
+#nav-panel {
+    width: 10%;
+    background-color: #49A0D6;
+    height: 100%;
+    text-align: left;
+}
+#nav-panel a {
+    color: white;
+    text-decoration: none;
+}
+#header {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: #009688;
+    width: 100%;
+    text-align: center;
+}
+    
+/*INDEX PAGES*/
+
+.model-index {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.model-index h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+.inactive-header {
+    font-size: 2em;
+    font-weight: 200;
+}
+.inactive-table {
+    margin-bottom: 100px;
+}
+summary::-webkit-details-marker {
+ color: #00ACF3;
+ font-size: 125%;
+ margin-right: 2px;
+}
+
+summary:focus {
+	outline-style: none;
+}
+article > details > summary {
+	font-size: 28px;
+	margin-top: 16px;
+}
+details > p {
+	margin-left: 24px;
+}
+details details {
+	margin-left: 36px;
+}
+details details summary {
+	font-size: 16px;
+}
+
+.add-object {
+    margin-top: 20px;
+}
+
+
+/*SHOW PAGE*/
+.model-show {
+    width: 80%;
+    margin: 0 auto;
+}
+.model-show h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+.model-show p {
+    font-size: 1.2em;
+    font-weight: 100;
+}
+
+
+/*ORDER HISTORY*/
+
+.order-history {
+    width: 100%;
+    margin: 0 auto;
+}
+.order-history h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+/*NEW PAGE*/
+.model-new {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+.model-new h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+
+/*EDIT PAGE*/
+.model-edit {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+.model-edit h1 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+/*FORM PAGE*/
+.model-form {
+    width: 100%;
+}
+.submit-button {
+    background-color: #009688;
+    margin-top: 20px;
+}
+.model-form #error_explanation {
+    margin-bottom: 20px;
+}
+.model-form #error_explanation h2 {
+    font-size: 1.5em;
+    font-weight: 200;
+    color: red;
+}
+.model-form #error_explanation ul {
+    padding-left: 20px;
+}
+.model-form #error_explanation li {
+    font-size: 1em;
+    font-weight: 200;
+    color: red;
+    list-style-type:decimal;
+}
+
+/*DATA SHOW PAGES*/
+.model-data {
+    width: 100%;
+}
+
+
+/*FOOTER*/
+
+footer {
+    height: 0;
+}
+.page-footer {
+    position:relative;
+    bottom: 0;
+    text-align: center;
+    height: auto;
+    color: white;
+}
+footer .copy {
+    font-size: 10px;
+}
