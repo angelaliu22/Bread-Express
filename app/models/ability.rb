@@ -6,6 +6,7 @@ class Ability
     user ||= User.new # i.e., a guest user
     
       if user.role? :admin
+          can :manage, :all
     
       elsif user.role? :baker
           
@@ -17,6 +18,7 @@ class Ability
           can :update, Customer
       else
           can :create, Customer
+          can :index, Item
       end
   end
 end
