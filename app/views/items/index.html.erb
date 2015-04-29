@@ -9,7 +9,7 @@
     <ul>
         <% @active_items.each do |item| %>
         <% unless item.picture_url.nil? %>
-                <p><%= image_tag @item.photo_url %></p>
+        <p><%= image_tag item.picture_url %></p>
             <% end %>
         <li><%= link_to item.name, items_path(item) %></li>
       <% end %>
