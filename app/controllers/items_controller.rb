@@ -46,7 +46,6 @@ class ItemsController < ApplicationController
   def create
       @item = Item.new(item_params)
       authorize! :create, @item
-      @item.created_by = current_user.id
       if @item.save
       # if saved to database
           flash[:notice] = "#{@item.name} has been created."

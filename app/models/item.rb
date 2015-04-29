@@ -9,7 +9,6 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :item_prices
   has_many :orders, through: :order_items
-    belongs_to :creator, class_name: "User", foreign_key: "created_by"
 
 
   # Scopes
