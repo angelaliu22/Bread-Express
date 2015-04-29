@@ -6,6 +6,7 @@ BreadExpress::Application.routes.draw do
     resources :orders
     resources :sessions
     resources :users
+    resources :items
 
 
     # Authentication routes
@@ -22,7 +23,6 @@ BreadExpress::Application.routes.draw do
     get 'privacy' => 'home#privacy', as: :privacy
     get 'search' => 'home#search', as: :search
     get 'cylon' => 'errors#cylon', as: :cylon
-    get 'items' => 'items#index', as: :items
   
   # Set the root url
   root :to => 'home#home'  

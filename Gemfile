@@ -26,7 +26,7 @@ gem 'font-awesome-sass-rails', '3.0.2.2'
 gem 'jquery-ui-rails', '5.0.3'
 gem 'cancancan', '1.9.2'
 gem 'validates_timeliness', '3.0.14'
-gem 'carrierwave', '0.10.0'
+gem 'carrierwave'
 gem 'time_date_helpers', '0.0.2'
 gem 'foundation-rails'
 
