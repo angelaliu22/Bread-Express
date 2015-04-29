@@ -1,1 +1,12 @@
-<h1>NEED TO MAKE THIS PAGE</h1>
+<% if @active_items.empty? %>
+    <p>We're currently not selling any baked goods at the moment :( </p>
+<% else %>
+  <div class="panel clearfix">
+    <h3>Bread Express Goods</h3>
+    <ul>
+        <% @active_items.each do |item| %>
+        <li><%= link_to item.name, items_path(item) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -27,7 +27,7 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-
+      params[:customer][:user_attributes][:role] = "customer"
     if @customer.save
         #start a new session
         #set current user

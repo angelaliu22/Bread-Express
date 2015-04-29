@@ -4,16 +4,9 @@
       <ul class="right">
         <!-- link to home -->
         <li><%= link_to "Home", home_path %></li>
+          <li><%= link_to "View Items", items_path %></li>
         <% if !logged_in? %>
-          <li><%= link_to "View Menu", items_path %></li>
-          <% else %>
-            <li><%= link_to "Logout", logout_path %></li>
-<!--
-            <ul class="dropdown">
-              <li><%= link_to "Edit settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "Logout", logout_path %></li>
-            </ul>
--->
+          <li><%= link_to "Login", login_path %></li>
         <% end %>
         <% if logged_in? && (current_user.role?(:admin) || current_user.role?(:customer)) %>
           <!-- options for orders -->
@@ -33,6 +26,12 @@
               <li><%= link_to "Add an Address", new_address_path %></li>
             </ul>
           </li>
+          <li><%= link_to "Logout", logout_path %></li>
+          <% elsif logged_in? && (current_user.role?(:baker)) %> 
+            <li><%= link_to "Logout", logout_path %></li>
+          <% elsif logged_in? && (current_user.role?(:shipper)) %>
+            <li><%= link_to "Logout", logout_path %></li>
+          <% else %>
         <% end %>
 
         <!-- ADMIN ONLY OPTIONS -->

@@ -29,7 +29,7 @@ namespace :db do
     mark.user_id = mark_user.id
     mark.active = true
     mark.save!
-
+      
     alex_user = User.new
     alex_user.username = "alex"
     alex_user.password = "secret"
