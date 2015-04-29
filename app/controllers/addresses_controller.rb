@@ -4,12 +4,14 @@ class AddressesController < ApplicationController
   authorize_resource
   
   def index
-    if current_user.role? :customer
+    if current_user.role?(:customer)
       @active_addresses = current_user.customer.addresses.active.by_recipient.paginate(:page => params[:page]).per_page(10)
       @inactive_addresses = current_user.customer.addresses.inactive.by_recipient.paginate(:page => params[:page]).per_page(10)      
-    else
+    elsif current_user.role?(:admin)
       @active_addresses = Address.active.by_customer.by_recipient.paginate(:page => params[:page]).per_page(10)
       @inactive_addresses = Address.inactive.by_customer.by_recipient.paginate(:page => params[:page]).per_page(10)
+    else
+        #they shouldn't be able to see addresses 
     end
   end
 

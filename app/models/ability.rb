@@ -36,7 +36,6 @@ class Ability
           can :show, User do |u|  
             u.id == user.id
           end
-          can :destroy, User
           
           can :index, Order
           can :show, Order
