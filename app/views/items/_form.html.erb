@@ -1,6 +1,6 @@
 <%= simple_form_for @item, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> User</legend>
+    <legend><%= controller.action_name.capitalize %> Item</legend>
       <div class="field">
           <%= f.label :picture %><br />
           <%= f.file_field :picture %>

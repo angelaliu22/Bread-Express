@@ -4,6 +4,7 @@ class UserTest < ActiveSupport::TestCase
 
   should have_one(:customer)
   should have_secure_password
+    should have_many(:created_items)
 
   # test validations
   should validate_presence_of(:username)

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   # Relationships
   has_one :customer
+    has_many :created_items, class_name: "Item", foreign_key: "created_by"
     
   # Validations
   validates :username, presence: true, uniqueness: { case_sensitive: false}
