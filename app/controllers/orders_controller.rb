@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    
+    include BreadExpressHelpers::Cart
 
   before_action :check_login
   before_action :set_order, only: [:show, :update, :destroy]
@@ -50,6 +52,11 @@ class OrdersController < ApplicationController
     @order.destroy
     redirect_to orders_url, notice: "This order was removed from the system."
   end
+    
+    def add_item
+        add_item_to_cart(params[:id])
+        flash[:notice] = "Item has been added to your cart!"
+    end
 
   private
   def set_order

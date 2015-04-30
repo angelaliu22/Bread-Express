@@ -40,13 +40,18 @@ class Ability
           can :index, Order
           can :show, Order
           can :create, Order
-          can :update, Order
           can :destroy, Order
+          can :add_item, Order
+          can :cart, Order
+          can :checkout_cart, Order
           
           can :index, Address
           can :create, Address
           can :update, Address
           can :destroy, Address
+          
+          can :index, Item
+          can :show, Item
           
       else
           can :create, Customer
