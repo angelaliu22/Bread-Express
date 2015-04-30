@@ -44,6 +44,7 @@ class Ability
           can :add_item, Order
           can :cart, Order
           can :checkout_cart, Order
+          can :place_order, Order
           
           can :index, Address
           can :create, Address
