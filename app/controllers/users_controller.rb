@@ -3,13 +3,11 @@ class UsersController < ApplicationController
   # authorize_resource
 
   def index
-    @users = User.alphabetical.paginate(:page => params[:page]).per_page(7)
+        @all_users = User.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
-    @user_assignments = @user.assignments.active.by_project
-    @created_tasks = Task.for_creator(@user.id).by_name
-    @completed_tasks = Task.for_completer(@user.id).by_name
+      @all_users = User.alphabetical.paginate(:page => params[:page]).per_page(10)
   end
 
   def new

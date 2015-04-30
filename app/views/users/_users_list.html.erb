@@ -1,0 +1,21 @@
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="300">Username</th>
+        <th width="100">Role</th>
+        <th width="100">Active?</th>
+          <% if controller.controller_name == 'users' %>
+          <th width="100">&nbsp;</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+        <% @all_users.each do |user| %>
+        <tr>
+            <td><%= link_to user.username, user_path(user) %></td>
+            <td><%= user.role %></td>
+            <td><%= user.active ? 'Yes' : 'No' %></td>
+          <% end %>
+        </tr>
+    </tbody>
+  </table>
