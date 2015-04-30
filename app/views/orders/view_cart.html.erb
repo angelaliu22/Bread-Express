@@ -1,0 +1,23 @@
+#view item quantity 
+
+#be able to edit and delete items
+
+#show subtotal, etc
+
+<div class="row">
+  <div class="small-7 columns">
+      <% unless @cart_order_items.empty? %>
+        <div class="panel clearfix">
+            <h3>Your cart </h3>
+            <ul>
+                <% @cart_order_items.each do |order_item| %>
+                    <% unless order_item.item.picture_url.nil? %>
+                        <p><%= image_tag order_item.item.picture_url %></p>
+                    <% end %>
+                    <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
+              <% end %>
+            </ul>
+          </div>
+    <% end %>
+  </div>
+</div>

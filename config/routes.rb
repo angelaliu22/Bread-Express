@@ -29,7 +29,7 @@ BreadExpress::Application.routes.draw do
   
   # Named routes
     get 'add_item/:id' => 'orders#add_item', as: :add_item
-    get 'cart' => 'orders#cart', as: :cart
+    get 'view_cart' => 'orders#view_cart', as: :view_cart
     get 'checkout_cart' => 'orders#checkout_cart', as: :checkout_cart
     get 'place_order' => 'orders#place_order', as: :place_order
 

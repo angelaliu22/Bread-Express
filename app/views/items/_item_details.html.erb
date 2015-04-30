@@ -1,6 +1,6 @@
 <h3><%= @item.name %></h3>
 <% unless @item.picture_url.nil? %>
-<p><%= image_tag @item.picture_url %></p>
+    <p><%= image_tag @item.picture_url %></p>
 <% end %>
 <p>
     <b>Description</b>: <%=  @item.description %>
