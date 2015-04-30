@@ -3,9 +3,6 @@
 <% else %>
   <div class="panel clearfix">
     <h3>Bread Express Goods</h3>
-      <% if logged_in? && current_user.role?(:admin) %>
-      <%= link_to 'Add New Item', new_item_path, :class => 'button secondary' %>
-      <% end %>
     <ul>
         <% @active_items.each do |item| %>
         <% unless item.picture_url.nil? %>

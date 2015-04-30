@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
+    
+    include BreadExpressHelpers::Cart
+    
   def new
   end
   
   def create
+      create_cart
       user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
@@ -14,6 +18,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
+      destroy_cart
     session[:user_id] = nil
     redirect_to root_url, notice: "Logged out!"
   end

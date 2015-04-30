@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
 
-
   before_action :check_login
   before_action :set_order, only: [:show, :update, :destroy]
   authorize_resource
@@ -25,14 +24,14 @@ class OrdersController < ApplicationController
   end
 
   def new
-
+      @order = Order.new
   end
 
   def create
     @order = Order.new(order_params)
 
     if @order.save
-
+        
       redirect_to @order, notice: "Thank you for ordering from Bread Express."
     else
       render action: 'new'

@@ -1,5 +1,8 @@
 class CustomersController < ApplicationController
   include ActionView::Helpers::NumberHelper
+    include BreadExpressHelpers::Cart
+    
+    
     before_action :check_login, except: [:new, :create]
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   authorize_resource
@@ -15,7 +18,7 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
-    user  = @customer.build_user
+    user = @customer.build_user
   end
 
   def edit
@@ -32,6 +35,7 @@ class CustomersController < ApplicationController
         #start a new session
         #set current user
         session[:user_id] = @customer.user_id
+        create_cart
         redirect_to home_path, notice: "#{@customer.proper_name} was added to the system."
     else
       flash[:error] = "This user could not be created."
