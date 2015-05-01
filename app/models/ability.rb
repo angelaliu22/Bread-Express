@@ -7,6 +7,7 @@ class Ability
     
       if user.role? :admin
           can :manage, :all
+          cannot :update, Order
     
       elsif user.role? :baker
           can :index, Item

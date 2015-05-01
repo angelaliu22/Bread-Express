@@ -33,6 +33,10 @@
     color: white;
     text-decoration: none;
 }
+.nav-cart img {
+    width: 100px;
+    height: auto;
+}
 #header {
     font-size: 1.5em;
     font-weight: 100;
@@ -166,6 +170,7 @@ details details summary {
 .model-data {
     width: 100%;
 }
+
 
 
 /*FOOTER*/

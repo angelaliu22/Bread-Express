@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
   end
   
   def create
-      create_cart
       user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_url, notice: "Logged in!"
+        create_cart
     else
         flash.now.alert = "Username or password is invalid"
       render "new"

@@ -1,15 +1,29 @@
+
 <%= simple_form_for @order, html: { class: 'form-horizontal' } do |f| %>
+
   <fieldset>
       <legend> Credit Card Information</legend>
-        
+        <% if @order.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this customer's information from being saved:</h2>
+                <ul>
+                    <% @order.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
         <div class="field">
             <%= f.input :credit_card_number %><br />
             <%= f.input :expiration_year %><br />
             <%= f.input :expiration_month %><br />
+            <%= f.date :expiration_year %>
+            <%= f.collection_select :address_id, Address.active.by_recipient.where(customer_id: @customer_id), :id, :full_address, prompt: "Select an address..." %>
         </div>
-
         <br>
-
+        <div class="actions">
+            <%= f.submit nil, class: "btn submit-button" %>
+        </div>
     </fieldset>
 <% end %>
 

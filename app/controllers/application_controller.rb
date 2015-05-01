@@ -30,6 +30,24 @@ class ApplicationController < ActionController::Base
   end
   helper_method :logged_in?
   
+    def empty_cart?
+        if session[:cart] != nil 
+            if session[:cart].empty?
+                return true
+            else
+                return false
+            end
+        end
+    end
+    helper_method :empty_cart?
+    
+    def num_items_in_cart
+        if session[:cart] != nil 
+            return session[:cart].length
+        end
+    end
+    helper_method :num_items_in_cart
+    
   def check_login
     redirect_to login_url, alert: "You need to log in to view this page." if current_user.nil?
   end

@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
 
   def new
       @order = Order.new
+#      @order.date = Date.today
   end
 
   def create
@@ -68,26 +69,24 @@ class OrdersController < ApplicationController
     def view_cart
         @cart_order_items = get_list_of_items_in_cart
         @cart_subtotal = calculate_cart_items_cost
+        
     end
     
     def checkout_cart
         @order = Order.new
-        @customer_id = current_user.customer.id
         @cart_order_items = get_list_of_items_in_cart
         @cart_subtotal = calculate_cart_items_cost
+        @customer_id = current_user.customer.id
+        flash[:notice] = "Awesome! Your order has been placed!"
     end
     
     def place_order
-        @cart_subtotal = calculate_cart_items_cost
-        @order = Order.new
+        @order = Order.new(order_params)
         save_each_item_in_cart(@order)
-        @order.grand_total = @cart_subtotal + @order.shipping_costs
-        @order.date = Date.today
-        @order.save!
-        @order.pay
+        @order.customer_id = current_user.customer.id
+        @order.pay  
         clear_cart
         create_cart
-        flash[:notice] = "Awesome! Your order has been placed!"
     end
 
 
@@ -97,7 +96,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address_id)
+      params.require(:order).permit(:address_id, :credit_card_number, :expiration_year, :expiration_month)
   end
 
 

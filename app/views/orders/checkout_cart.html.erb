@@ -5,15 +5,12 @@
             <p><%= image_tag order_item.item.picture_url %></p> 
         <% end %>
         <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
-        <li><p>Quantity: </p> <% order_item.subtotal %></li>
-        <li><p>Subtotal: </p> <% order_item.subtotal %></li>
+        <li><p>Quantity: </p> <%= order_item.quantity %></li>
+        <li><p>Subtotal: </p> <%= order_item.subtotal %></li>
   <% end %>
-    <p>Order Subtotal: </p><% @cart_subtotal %>
-    <p>Shipping Cost: </p> <% @order.shipping_costs %>
-    <p> Grand Total: </p> <% @cart_subtotal + @order.shipping_costs %>
+    <p>Order Subtotal: </p><%= @cart_subtotal %>
+    <p>Shipping Cost: </p> <%= @order.shipping_costs %>
+    <p> Grand Total: </p> <%= @cart_subtotal + @order.shipping_costs %>
     
 </ul>
 <%= render partial: 'credit_card_info' %>
-<%= render partial: 'select_address' %>
-
-<%= link_to "Place Order", place_order_path, class: "btn submit-button" %>

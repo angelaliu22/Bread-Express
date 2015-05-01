@@ -12,7 +12,9 @@
 		
         <%= f.input :units_per_item %>
       <%= f.input :weight %>
-      <%= f.input :active %>
+        
+        <%= f.check_box :active %>
+        <%= f.label :active %>
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'button radius' %>
