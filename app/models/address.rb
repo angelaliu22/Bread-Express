@@ -24,6 +24,11 @@ class Address < ActiveRecord::Base
   validate :customer_is_active_in_system
   validate :address_is_not_a_duplicate, on: :create
 
+    
+    def full_address
+        "#{recipient} : #{street_1} #{street_2}, #{city}, #{state} #{zip}"
+    end
+    
   def already_exists?
     Address.where(customer_id: self.customer_id, recipient: self.recipient, zip: self.zip).size == 1
   end

@@ -56,7 +56,6 @@ class OrdersController < ApplicationController
     
     def add_item
         add_item_to_cart(params[:id])
-        
         flash[:notice] = "Item has been added to your cart!"
         @related_items = Item.for_category(Item.find_by_id(params[:id]).category).paginate(:page => params[:page]).per_page(10)
     end
@@ -71,17 +70,26 @@ class OrdersController < ApplicationController
         @cart_subtotal = calculate_cart_items_cost
     end
     
+    def checkout_cart
+        @order = Order.new
+        @customer_id = current_user.customer.id
+        @cart_order_items = get_list_of_items_in_cart
+        @cart_subtotal = calculate_cart_items_cost
+    end
+    
     def place_order
+        @cart_subtotal = calculate_cart_items_cost
+        @order = Order.new
+        save_each_item_in_cart(@order)
+        @order.grand_total = @cart_subtotal + @order.shipping_costs
+        @order.date = Date.today
+        @order.save!
         @order.pay
         clear_cart
         create_cart
         flash[:notice] = "Awesome! Your order has been placed!"
     end
-    
-#    def view_related_items
-#        @related_items = Item.for_category(params[:category]).paginate(:page => params[:page]).per_page(10)
-#        redirect_to add_item_path
-#    end
+
 
   private
   def set_order
