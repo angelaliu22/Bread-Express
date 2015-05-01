@@ -42,6 +42,7 @@ class Ability
           can :create, Order
           can :destroy, Order
           can :add_item, Order
+          can :remove_item, Order
           can :view_cart, Order
           can :checkout_cart, Order
           can :place_order, Order

@@ -1,8 +1,14 @@
 <div class="row">
   <div class="small-8 columns">
       <%= link_to "Continue Shopping", items_path %>
+      <br>
+        <br>
       <%= link_to "View Cart", view_cart_path %>
+      <br>
+      <br>
       <%= link_to "Proceed to Checkout", checkout_cart_path %>
+      <br>
+      <br>
   </div>
     <% unless @related_items.empty? %>
         <div class="panel clearfix">

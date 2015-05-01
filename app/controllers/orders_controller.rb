@@ -56,12 +56,19 @@ class OrdersController < ApplicationController
     
     def add_item
         add_item_to_cart(params[:id])
+        
         flash[:notice] = "Item has been added to your cart!"
         @related_items = Item.for_category(Item.find_by_id(params[:id]).category).paginate(:page => params[:page]).per_page(10)
     end
     
+    def remove_item
+        remove_item_from_cart(params[:id])
+        redirect_to view_cart_url, notice: "Item has been removed from your cart!"
+    end
+    
     def view_cart
         @cart_order_items = get_list_of_items_in_cart
+        @cart_subtotal = calculate_cart_items_cost
     end
     
     def place_order

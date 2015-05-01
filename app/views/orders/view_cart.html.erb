@@ -1,8 +1,4 @@
-#view item quantity 
-
-#be able to edit and delete items
-
-#show subtotal, etc
+#be able to change quantity
 
 <div class="row">
   <div class="small-7 columns">
@@ -12,12 +8,17 @@
             <ul>
                 <% @cart_order_items.each do |order_item| %>
                     <% unless order_item.item.picture_url.nil? %>
-                        <p><%= image_tag order_item.item.picture_url %></p>
+                        <p><%= image_tag order_item.item.picture_url %></p> 
                     <% end %>
                     <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
+                    <li><p>Quantity: </p> <% order_item.quantity %></li>
+                <li><%= link_to "Delete Item", remove_item_path(order_item.item.id) %></li>
               <% end %>
             </ul>
+
           </div>
     <% end %>
+      <%= link_to "Checkout", checkout_cart_path %>
+      <p>Subtotal: </p><% @cart_subtotal %>
   </div>
 </div>
