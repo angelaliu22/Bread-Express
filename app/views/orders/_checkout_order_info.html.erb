@@ -17,7 +17,6 @@
             <%= f.input :credit_card_number %><br />
             <%= f.input :expiration_year %><br />
             <%= f.input :expiration_month %><br />
-            <%= f.date :expiration_year %>
             <%= f.collection_select :address_id, Address.active.by_recipient.where(customer_id: @customer_id), :id, :full_address, prompt: "Select an address..." %>
         </div>
         <br>

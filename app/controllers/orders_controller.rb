@@ -9,11 +9,11 @@ class OrdersController < ApplicationController
   
   def index
     if logged_in? && !current_user.role?(:customer)
-      @pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-      @all_orders = Order.chronological.paginate(:page => params[:page]).per_page(5)
+        @pending_orders = Order.for_customer(current_user.customer.id).not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
+        @past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(5)
     else
       @pending_orders = current_user.customer.orders.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-      @all_orders = current_user.customer.orders.chronological.paginate(:page => params[:page]).per_page(5)
+      @past_orders = Order.shipped.chronological.paginate(:page => params[:page]).per_page(5)
     end 
   end
 
@@ -29,6 +29,11 @@ class OrdersController < ApplicationController
   def new
       @order = Order.new
 #      @order.date = Date.today
+        save_each_item_in_cart(@order)
+        @order.customer_id = current_user.customer.id
+        @order.pay  
+        clear_cart
+        create_cart
   end
 
   def create
@@ -36,7 +41,7 @@ class OrdersController < ApplicationController
 
     if @order.save
         
-      redirect_to @order, notice: "Thank you for ordering from Bread Express."
+        redirect_to place_order_path, notice: "Thank you for ordering from Bread Express."
     else
       render action: 'new'
     end
@@ -80,14 +85,14 @@ class OrdersController < ApplicationController
         flash[:notice] = "Awesome! Your order has been placed!"
     end
     
-    def place_order
-        @order = Order.new(order_params)
-        save_each_item_in_cart(@order)
-        @order.customer_id = current_user.customer.id
-        @order.pay  
-        clear_cart
-        create_cart
-    end
+#    def place_order
+#        @order = Order.new(order_params)
+#        save_each_item_in_cart(@order)
+#        @order.customer_id = current_user.customer.id
+#        @order.pay  
+#        clear_cart
+#        create_cart
+#    end
 
 
   private

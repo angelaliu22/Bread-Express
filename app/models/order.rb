@@ -24,6 +24,10 @@ class Order < ActiveRecord::Base
   def self.not_shipped
     joins(:order_items).where("order_items.shipped_on IS NULL").uniq!
   end
+    
+    def self.shipped
+    joins(:order_items).where("order_items.shipped_on IS NOT NULL").uniq!
+  end
 
   # Validations
   validates_date :date

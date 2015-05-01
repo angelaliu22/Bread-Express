@@ -1,8 +1,8 @@
 <% if @active_items.empty? %>
-    <p>We're currently not selling any baked goods at the moment :( </p>
+    <p>No active items at this time </p>
 <% else %>
   <div class="panel clearfix">
-    <h3>Bread Express Goods</h3>
+    <h3>Bread Express Available Items</h3>
     <ul>
         <% @active_items.each do |item| %>
         <% unless item.picture_url.nil? %>

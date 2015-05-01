@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
 
   def show
       authorize! :show, @item
+      @item_price_history = ItemPrice.for_item(@item.id).chronological.paginate(:page => params[:page]).per_page(10)
   end
 
   def new

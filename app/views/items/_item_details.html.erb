@@ -3,10 +3,19 @@
     <p><%= image_tag @item.picture_url %></p>
 <% end %>
 <p>
+    <b>Price</b>: $<%= @item.current_price %>
+</p>
+<p>
     <b>Description</b>: <%=  @item.description %>
 </p>
 
 <p>
     <b>Units Per Item</b>: <%=  @item.units_per_item %>
 </p>
+<p>
+    <b>Total Weight:</b>: <%=@item.weight %>
+</p>
 
+<% if logged_in? && current_user.role?(:admin) %>
+    <% render partial: 'item_price_history' %>
+<% end %>

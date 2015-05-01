@@ -1,0 +1,25 @@
+<% if @item_price_history.empty? %>
+  <p><em>This item does not have any past prices.</em></p>
+<% else %>
+<h2> Price Hsitory</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @item_price_history.each do |price| %>
+      <tr>
+          <td><%= price.price %></td>
+          <td><%= price.start_date %></td>
+          <td><%= price.end_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+<p>&nbsp;</p>

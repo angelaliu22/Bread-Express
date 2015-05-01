@@ -1,10 +1,35 @@
 <% if @pending_orders.empty? %>
-  <h5><em>No pending orders at this time.</em></h5>
+  <h5><em>You have no pending orders at this time.</em></h5>
 <% else %>
-  <%= render :partial => "order_list", locals: {status: 'Pending', orders: @pending_orders} %> 
-  <br />
-  <%= link_to(eval("new_order_path"), class: "button radius") do %>
-    &nbsp;Add a New Order
-  <% end %> 
-<% end %>
-
+ <h4> Pending Orders</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="100">Date</th>
+          <% if logged_in? && !current_user.role?(:customer) %>
+          <th width="2250">Customer</th>
+          <% end %>
+        <th width="225">Recipient</th>
+        <th width="250">Items</th>
+        <th width="100">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @pending_orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.date.strftime('%m/%d/%y'), order_path(order) %></td>
+        <% if logged_in? && !current_user.role?(:customer) %>
+            <td><%= link_to order.customer.proper_name, customer_path(order.customer) %></td>   
+            <% end %>
+          <td><%= link_to order.address.recipient, address_path(order.address) %></td>
+          <td>
+            <% order.order_items.each do |oi| %>
+              <%= oi.quantity %> <%= oi.item.name %><br />
+            <% end %>
+          </td>
+          <td><%= number_to_currency order.grand_total %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
+<% end %> 
