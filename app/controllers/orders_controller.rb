@@ -51,7 +51,6 @@ class OrdersController < ApplicationController
         @order.pay
         clear_cart
         create_cart
-#        redirect_to new_order_path, notice: "Your order has been placed! Thank you for ordering from Bread Express."
     else
         render action: 'checkout_cart'
     end
