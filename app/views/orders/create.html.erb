@@ -1,0 +1,20 @@
+#delete order 
+#view order receipt 
+#option to mail receipt or print receipts
+
+<%= link_to "Continue Shopping", items_path %>
+<%= render partial: 'order_confirmation' %>
+
+<% unless @all_items.empty? %>
+    <div class="panel clearfix">
+        <h3>Customers who bought this item also bought ... </h3>
+        <ul>
+            <% @all_items.each do |item| %>
+                <% unless item.picture_url.nil? %>
+                    <p><%= image_tag item.picture_url %></p>
+                <% end %>
+                <li><%= link_to item.name, item_path(item) %></li>
+          <% end %>
+        </ul>
+      </div>
+<% end %>

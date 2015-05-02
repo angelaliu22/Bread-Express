@@ -31,24 +31,27 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-      save_each_item_in_cart(@order)
-        @cart_order_items = get_list_of_items_in_cart
-        @cart_subtotal = calculate_cart_items_cost
-        @customer_id = current_user.customer.id
       
-      #convert expiration month and year to integers 
-        @order.expiration_year = @order.expiration_year.to_i
-        @order.expiration_month = @order.expiration_month.to_i
-      
-      #set some params for the payment receipt 
-        @order.date = Date.today
-        @order.customer_id = current_user.customer.id
+      #variables that the view uses
+      @all_items = Item.all
+    @cart_order_items = get_list_of_items_in_cart
+    @cart_subtotal = calculate_cart_items_cost
+    @customer_id = current_user.customer.id
+
+  #convert expiration month and year to integers 
+    @order.expiration_year = @order.expiration_year.to_i
+    @order.expiration_month = @order.expiration_month.to_i
+
+  #set some params for the payment receipt 
+    @order.date = Date.today
+    @order.customer_id = current_user.customer.id
       
     if @order.save
+        save_each_item_in_cart(@order)
         @order.pay
         clear_cart
         create_cart
-        redirect_to new_order_path, notice: "Your order has been placed! Thank you for ordering from Bread Express."
+#        redirect_to new_order_path, notice: "Your order has been placed! Thank you for ordering from Bread Express."
     else
         render action: 'checkout_cart'
     end
