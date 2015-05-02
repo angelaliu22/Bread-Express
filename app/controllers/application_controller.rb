@@ -42,8 +42,12 @@ class ApplicationController < ActionController::Base
     helper_method :empty_cart?
     
     def num_items_in_cart
+        num = 0
         if session[:cart] != nil 
-            return session[:cart].length
+            session[:cart].each do |item_id, quantity|
+                num += quantity
+            end
+            num
         end
     end
     helper_method :num_items_in_cart

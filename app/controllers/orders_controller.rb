@@ -8,13 +8,10 @@ class OrdersController < ApplicationController
   authorize_resource
   
   def index
-    if logged_in? && !current_user.role?(:customer)
-        @pending_orders = Order.for_customer(current_user.customer.id).not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-        @past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(5)
-    else
-      @pending_orders = current_user.customer.orders.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-      @past_orders = Order.shipped.chronological.paginate(:page => params[:page]).per_page(5)
-    end 
+    @customer_pending_orders = Order.for_customer(current_user.customer.id).not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
+    @customer_past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(5)
+    @all_pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
+    @all_past_orders = Order.shipped.chronological.paginate(:page => params[:page]).per_page(5)
   end
 
   def show
@@ -28,22 +25,30 @@ class OrdersController < ApplicationController
 
   def new
       @order = Order.new
-#      @order.date = Date.today
-        save_each_item_in_cart(@order)
-        @order.customer_id = current_user.customer.id
-        @order.pay  
-        clear_cart
-        create_cart
   end
 
   def create
     @order = Order.new(order_params)
-
+      save_each_item_in_cart(@order)
+        @cart_order_items = get_list_of_items_in_cart
+        @cart_subtotal = calculate_cart_items_cost
+        @customer_id = current_user.customer.id
+      
+      #convert expiration month and year to integers 
+        @order.expiration_year = @order.expiration_year.to_i
+        @order.expiration_month = @order.expiration_month.to_i
+      
+      #set some params for the payment receipt 
+        @order.date = Date.today
+        @order.customer_id = current_user.customer.id
+      
     if @order.save
-        
-        redirect_to place_order_path, notice: "Thank you for ordering from Bread Express."
+        @order.pay
+        clear_cart
+        create_cart
+        redirect_to new_order_path, notice: "Your order has been placed! Thank you for ordering from Bread Express."
     else
-      render action: 'new'
+        render action: 'checkout_cart'
     end
   end
 
@@ -74,7 +79,6 @@ class OrdersController < ApplicationController
     def view_cart
         @cart_order_items = get_list_of_items_in_cart
         @cart_subtotal = calculate_cart_items_cost
-        
     end
     
     def checkout_cart
@@ -82,18 +86,7 @@ class OrdersController < ApplicationController
         @cart_order_items = get_list_of_items_in_cart
         @cart_subtotal = calculate_cart_items_cost
         @customer_id = current_user.customer.id
-        flash[:notice] = "Awesome! Your order has been placed!"
     end
-    
-#    def place_order
-#        @order = Order.new(order_params)
-#        save_each_item_in_cart(@order)
-#        @order.customer_id = current_user.customer.id
-#        @order.pay  
-#        clear_cart
-#        create_cart
-#    end
-
 
   private
   def set_order

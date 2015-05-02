@@ -1,4 +1,7 @@
-<%= render partial: "partials/index_structure", locals: {model_name: "order", 
-                                                         primary: "pending_orders", 
-                                                         secondary: "past_orders",
-                                                         sidebar: nil} %>
+<% if logged_in? && current_user.role?(:customer) %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "order", primary: "customer_pending_orders", secondary: "customer_past_orders", sidebar: nil} %>
+
+<% elsif logged_in? && (current_user.role?(:admin) || current_user.role?(:baker) || current_user.role?(:shipper)) %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "order", primary: "all_pending_orders", secondary: "all_past_orders", sidebar: nil} %>
+<% else %>
+<% end %>

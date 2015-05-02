@@ -1,24 +1,20 @@
-<% if @all_past_orders.empty? %>
-  &nbsp;
-      <h5><em>There are no previous orders.</em></h5>
-
+<% if @customer_pending_orders.empty? %>
+  <h5><em>You have no pending orders at this time.</em></h5>
 <% else %>
-  <h4> Past Orders</h4>
+ <h4> Pending Orders</h4>
   <table class="table table-striped">
     <thead>
       <tr>
         <th width="100">Date</th>
-        <th width="2250">Customer</th>
         <th width="225">Recipient</th>
         <th width="250">Items</th>
         <th width="100">Cost</th>
       </tr>
     </thead>
     <tbody>
-        <% @all_past_orders.each do |order| %>
+        <% @customer_pending_orders.each do |order| %>
         <tr>
           <td><%= link_to order.date.strftime('%m/%d/%y'), order_path(order) %></td>
-            <td><%= link_to order.customer.proper_name, customer_path(order.customer) %></td>   
           <td><%= link_to order.address.recipient, address_path(order.address) %></td>
           <td>
             <% order.order_items.each do |oi| %>
@@ -30,5 +26,4 @@
       <% end %>
     </tbody>
   </table>  
-<% end %>
-<br />
+<% end %> 
