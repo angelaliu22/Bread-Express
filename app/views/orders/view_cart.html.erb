@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="small-7 columns">
-      <% unless @cart_order_items.empty? %>
+      <% if !@cart_order_items.empty? %>
         <div class="panel clearfix">
             <h3>Your cart </h3>
             <ul>
@@ -18,7 +18,9 @@
             </ul>
 
           </div>
+            <%= link_to "Checkout", checkout_cart_path %>
+      <% else %>
+      <h3>There are no items in your cart</h3>
     <% end %>
-      <%= link_to "Checkout", checkout_cart_path %>
   </div>
 </div>

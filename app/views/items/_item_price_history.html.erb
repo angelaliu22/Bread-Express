@@ -5,18 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Price</th>
       <th>Start Date</th>
       <th>End Date</th>
+        <th>Price</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
       <% @item_price_history.each do |price| %>
       <tr>
-          <td><%= price.price %></td>
           <td><%= price.start_date %></td>
           <td><%= price.end_date %></td>
+          <td><%= price.price %></td>
       </tr>
     <% end %>
   </tbody>

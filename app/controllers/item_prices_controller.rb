@@ -3,7 +3,7 @@ class ItemPricessController < ApplicationController
     include BreadExpressHelpers::Cart
     include BreadExpressHelpers::Shipping
     
-    before_action :set_item_price, only: [:show, :update, :destroy]
+    before_action :set_item_price, only: [:show, :edit, :update, :destroy]
 #  before_action :check_login
   # authorize_resource
 
@@ -38,8 +38,8 @@ class ItemPricessController < ApplicationController
   end
 
   def update
-      if @item.update(item_params)
-          redirect_to @item, notice: "Your item was revised in the system."
+      if @item_price.update(item_price_params)
+          redirect_to @item_price, notice: "Your item was revised in the system."
     else
       render action: 'edit'
     end

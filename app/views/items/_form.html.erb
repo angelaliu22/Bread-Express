@@ -2,12 +2,24 @@
     <div class="row">
       <div class="span7">
         <fieldset>
+            <% if @item.errors.any? %>
+            <div id="error_explanation">
+                <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+                <ul>
+                    <% @item.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
           <legend> New Item </legend>
-            <%= render :partial => "item_fields", :locals => { :f => item_form } %>
-        <div id="item_price_form">
-            <%= item_form.simple_fields_for :item_price do |item_price_form| %>
-            <%= render :partial => "item_price_fields", :locals => { :f => item_price_form } %>
-              <% end %> 
+            <div class = "field">
+                <%= render :partial => "item_fields", :locals => { :f => item_form } %>
+            <div id="item_price_form">
+                <%= item_form.simple_fields_for :item_price do |item_price_form| %>
+                <%= render :partial => "item_price_fields", :locals => { :f => item_price_form } %>
+                  <% end %>
+            </div>
         </fieldset>
         </div> 
       </div>

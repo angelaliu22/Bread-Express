@@ -38,8 +38,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-      @item = Item.new
-      authorize! :new, @item      
+      authorize! :new, @item
+      
   end
 
   def edit
