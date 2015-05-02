@@ -3,9 +3,11 @@
 
 <% elsif logged_in? && current_user.role?(:baker) %>
     <p>Here are all the items that need to be baked</p>
+<%= render partial: 'baker_homepage' %>
 
 <% elsif logged_in? && current_user.role?(:shipper) %>
     <p>Here are all the orders that need to be shipped</p>
+    <%= render partial: 'shipper_homepage' %>
 
 <% elsif logged_in? && current_user.role?(:customer) %>
     <p>Welcome Back!</p>
