@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
 
   def new
       @order = Order.new
+      @all_items = Item.all
+      @order_items = @order.order_items.to_a
   end
 
   def create

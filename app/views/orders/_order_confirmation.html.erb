@@ -1,0 +1,10 @@
+<%= render partial: 'order_details' %>
+
+<h3>Shipping Address</h3>
+<p><%= @order.address.full_address %></p>
+
+<h3>Credit Card Information</h3>
+<ul>
+    <li><%= @order.credit_card_type %></li>
+    <li>**********<%=@order.credit_card_number[-4..-1] %></li>
+</ul>
