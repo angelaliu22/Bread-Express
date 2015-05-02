@@ -1,0 +1,14 @@
+<div class="field">
+  <%= f.label :picture %><br />
+  <%= f.file_field :picture %>
+</div>
+<%= f.input :name %>
+
+<%= f.input :description %>
+<%= f.input :category, :collection => ["bread", "muffins", "pastries"], :prompt => true %>
+
+<%= f.input :units_per_item %>
+<%= f.input :weight %>
+
+<%= f.check_box :active %>
+<%= f.label :active %>

@@ -9,6 +9,10 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :item_prices
   has_many :orders, through: :order_items
+    
+    #allow item price to be nested with item
+    accepts_nested_attributes_for :item_prices, reject_if: ->(item_price) { item_price[:price].blank? }, allow_destroy: true
+
 
 
   # Scopes

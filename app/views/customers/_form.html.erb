@@ -2,18 +2,12 @@
     <div class="row">
       <div class="span7">
         <fieldset>
-          <legend><%= controller.action_name.capitalize %> Customer</legend>
+          <legend> Sign Up</legend>
             <%= render :partial => "customer_fields", :locals => { :f => customer_form } %>
-        </fieldset>
-      </div>
-
-    <div class="span5">
-        <fieldset>
-      <legend>User Information</legend>
         <div id="customer_user">
             <%= customer_form.simple_fields_for :user do |user_form| %>
-            <%= render :partial => "user_fields", :locals => { :f => user_form } %>
-          <% end %> 
+                <%= render :partial => "user_fields", :locals => { :f => user_form } %>
+              <% end %> 
         </fieldset>
         </div> 
       </div>

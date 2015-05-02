@@ -30,6 +30,7 @@ gem 'carrierwave'
 gem 'time_date_helpers', '0.0.2'
 gem 'foundation-rails'
 
+
 # Additional gems that are very useful in Rails development
 group :development do
   gem 'quiet_assets', '1.1.0'

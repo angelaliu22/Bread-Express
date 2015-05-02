@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
     include BreadExpressHelpers::Cart
     include BreadExpressHelpers::Shipping
     
-    before_action :set_item, only: [:show, :edit, :update, :destroy, :complete, :incomplete]
+    before_action :set_item, only: [:show, :edit, :update, :destroy]
 #  before_action :check_login
   # authorize_resource
 
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
 
   def new
       @item = Item.new
-      authorize! :new, @item
+      authorize! :new, @item      
   end
 
   def edit
@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
 
   def create
       @item = Item.new(item_params)
+#      params[:item][:item_price_attributes][:start_date] = Date.today
       authorize! :create, @item
       if @item.save
       # if saved to database
@@ -82,7 +83,7 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-        params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active)  
+        params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, item_price_attributes: [:id, :price, :start_date, :end_date, :_destroy])  
     end
     
 end
