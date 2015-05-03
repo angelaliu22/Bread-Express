@@ -1,5 +1,3 @@
-#be able to change quantity
-
 <div class="row">
   <div class="small-7 columns">
       <% if !@cart_order_items.empty? %>
@@ -13,7 +11,7 @@
                     <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
                     <li><p>Quantity: </p> <%= order_item.quantity %></li>
                 <li><p>Subtotal: </p> <%= order_item.subtotal %></li>
-                <li><%= link_to "Delete Item", remove_item_path(order_item.item.id) %></li>
+                <li><%= link_to "Remove Item", remove_item_path(order_item.item.id) %></li>
               <% end %>
             </ul>
 

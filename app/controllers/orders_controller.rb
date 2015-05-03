@@ -10,15 +10,15 @@ class OrdersController < ApplicationController
   def index
       if (logged_in? && current_user.role?(:customer))
         @customer_pending_orders = Order.not_shipped.for_customer(current_user.customer.id).chronological.paginate(:page => params[:page]).per_page(10)
-        @customer_past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(5)
+        @customer_past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(10)
     else 
-        @all_pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
-        @all_past_orders = Order.shipped.chronological.paginate(:page => params[:page]).per_page(5)
+        @all_pending_orders = Order.not_shipped.chronological.paginate(:page => params[:page]).per_page(10)
+        @all_past_orders = Order.shipped.chronological.paginate(:page => params[:page]).per_page(10)
      end
   end
 
   def show
-    @order_items = @order.order_items.to_a
+    @order_items = @order.order_items.paginate(:page => params[:page]).per_page(10)
     if current_user.role?(:customer)
       @previous_orders = current_user.customer.orders.chronological.to_a
     else
