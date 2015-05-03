@@ -11,6 +11,7 @@ class Ability
     
       elsif user.role? :baker
           can :index, Item
+          can :show, Item
           
           can :show, User do |u|  
             u.id == user.id
@@ -21,6 +22,7 @@ class Ability
           
       elsif user.role? :shipper
           can :index, Item
+          can :show, Item
           
           can :show, User do |u|  
             u.id == user.id

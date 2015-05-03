@@ -12,7 +12,7 @@
     <tbody>
         <% @items_to_bake.each do |order_item| %>
         <tr>
-            <td><%= link_to order_item.item.name, items_path(order_item.item) %></td>
+            <td><%= link_to order_item.item.name, item_path(order_item.item) %></td>
             <td><%= order_item.quantity %></td>
         </tr>
       <% end %>

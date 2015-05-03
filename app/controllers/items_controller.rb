@@ -11,11 +11,15 @@ class ItemsController < ApplicationController
       @bread_items = Item.active.for_category("bread").paginate(:page => params[:page]).per_page(10)
       @muffin_items = Item.active.for_category("muffins").paginate(:page => params[:page]).per_page(10)
       @pastry_items = Item.active.for_category("pastries").paginate(:page => params[:page]).per_page(10)
+      
   end
 
   def show
       authorize! :show, @item
       @item_price_history = ItemPrice.for_item(@item.id).chronological.paginate(:page => params[:page]).per_page(10)
+      
+      @related_items = Item.for_category(@item.category).paginate(:page => params[:page]).per_page(10)
+      
   end
 
   def new
