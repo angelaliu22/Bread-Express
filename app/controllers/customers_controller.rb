@@ -13,7 +13,8 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @previous_orders = @customer.orders.chronological
+        @customer_pending_orders = Order.for_customer(current_user.customer.id).not_shipped.chronological.paginate(:page => params[:page]).per_page(5)
+        @customer_past_orders = Order.for_customer(current_user.customer.id).shipped.chronological.paginate(:page => params[:page]).per_page(5)
   end
 
   def new

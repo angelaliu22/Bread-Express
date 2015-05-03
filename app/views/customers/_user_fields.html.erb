@@ -1,3 +1,8 @@
 <%= f.input :username, input_html: {class: "avg"} %>
-<%= f.input :password, input_html: {class: "avg"} %>
+<% if logged_in? %>
+    <%= f.input :password, :placeholder => '**********', input_html: {class: "avg"} %>
+    <%= f.input :password_confirmation, :placeholder => '**********', input_html: {class: "avg"} %>
+<% else %>
+    <%= f.input :password, input_html: {class: "avg"} %>
 <%= f.input :password_confirmation, input_html: {class: "avg"} %>
+<% end %>

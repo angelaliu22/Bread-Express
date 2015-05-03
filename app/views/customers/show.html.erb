@@ -3,9 +3,13 @@
     <%= render partial: "customer_details" %>
   </div>
   <div class="small-5 columns">
-      <%= render partial: "past_orders", locals: {previous_orders: @previous_orders}  unless @previous_orders.empty?%>
+      <%= render partial: "partials/index_structure", locals: {model_name: "order", primary: "orders/customer_pending_orders", secondary: "orders/customer_past_orders", sidebar: nil} %>
   </div>
 </div>
 
-<!-- Add buttons to list all, edit project or destroy object -->
-<%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
+<% if logged_in? && current_user.role?(:admin) %>
+    <!-- Add buttons to list all, edit project or destroy object -->
+    <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
+<% elsif logged_in? && current_user.role?(:customer) %>
+    <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
+<% end %>

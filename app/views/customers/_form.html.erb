@@ -2,7 +2,11 @@
     <div class="row">
       <div class="span7">
         <fieldset>
-          <legend> Sign Up</legend>
+            <% if logged_in? %>
+                <legend> Update Information</legend>
+            <% else %>
+                <legend> Sign Up</legend>
+            <% end %>
             <%= render :partial => "customer_fields", :locals => { :f => customer_form } %>
         <div id="customer_user">
             <%= customer_form.simple_fields_for :user do |user_form| %>

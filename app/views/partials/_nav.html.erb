@@ -16,6 +16,7 @@
           <li class="has-dropdown">
               <%= link_to "My Account", customers_path %>
             <ul class="dropdown">
+                <li><%= link_to "Profile", customer_path(current_user.customer) %></li>
               <li><%= link_to "My Orders", orders_path %></li>
                 <li><%= link_to "My Addresses", addresses_path %></li>
                 <li><%= link_to "Logout", logout_path %></li>
