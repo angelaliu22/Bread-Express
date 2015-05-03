@@ -5,5 +5,12 @@
 
 <h3>Credit Card Information</h3>
 <ul>
-    <li><%= @order.credit_card_type %> ********<%= @order.credit_card_number[-4..-1] %></li>
+    <li><%= @order.credit_card_type %>********<%= @order.credit_card_number[-4..-1] %></li>
 </ul>
+
+<% if @order.order_items.shipped.empty? %>
+    <%= link_to(eval("order_path(@order)"), method: 'delete', data: {confirm: "Are you sure you want to cancel your order?"}, class: 'button radius alert') do %>
+        <!-- <i class="fa fa-trash-o"></i> -->
+&nbsp;<%= "Delete Order" %>
+    <% end %>
+<% end %>
