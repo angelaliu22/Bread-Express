@@ -15,6 +15,12 @@
         <li>Units: <%= link_to item.units_per_item, item_path(item) %></li>
         <%= link_to "Add to Cart", add_item_path(item.id) %>
         <br>
+        <td>
+            <%= link_to(edit_item_path(item), class: 'button tiny radius warning') do %>
+            &nbsp;Edit&nbsp;
+          <% end %>
+        </td>
+        <br>
         <br>
         
       <% end %>

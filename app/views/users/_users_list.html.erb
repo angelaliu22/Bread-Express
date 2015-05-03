@@ -4,8 +4,9 @@
         <th width="300">Username</th>
         <th width="100">Role</th>
         <th width="100">Active?</th>
-          <% if controller.controller_name == 'users' %>
-          <th width="100">&nbsp;</th>
+        <% if logged_in? && current_user.role?(:admin) %>
+          <th width = "100">&nbsp;</th>
+          <th width = "100">&nbsp;</th>
         <% end %>
       </tr>
     </thead>
@@ -15,7 +16,21 @@
             <td><%= link_to user.username, user_path(user) %></td>
             <td><%= user.role %></td>
             <td><%= user.active ? 'Yes' : 'No' %></td>
-          <% end %>
+          <% if logged_in? && current_user.role?(:admin) %>
+            <td>
+                <%= link_to(eval("edit_user_path(user)"), class: 'tiny button radius warning') do %>
+        <!-- <i class="fa fa-pencil"></i> -->
+                &nbsp;<%= "Edit" %>
+              <% end %>
+            </td>
+            <% end %>
+            <td>
+                <%= link_to(eval("user_path(user)"), method: 'delete', data: {confirm: "Are you sure you want to deactive this user?"}, class: 'button tiny radius alert') do %>
+        <!-- <i class="fa fa-trash-o"></i> -->
+                &nbsp;<%= "Deactivate" %>
+                    <% end %>
+            </td>
         </tr>
+        <% end %>    
     </tbody>
   </table>
