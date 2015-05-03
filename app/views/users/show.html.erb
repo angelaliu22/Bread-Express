@@ -5,3 +5,7 @@
     <em>Thanks for being a Bread Express customer since <%= @user.created_at.year %>.</em>
 </p>
 </div>
+
+<% if logged_in? && current_user.role?(:admin) %>
+<%= render partial: "partials/object_options", locals: {model_name: "user", object: @user}  %>
+<% end %>

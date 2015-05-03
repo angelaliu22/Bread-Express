@@ -11,14 +11,12 @@
                 </ul>
             </div>
         <% end %>
-        <div class="field">
-            <p>Since you can't pick your package, go ahead and pick your price!</p>
-            <%= f.label :cost %><br />
-            <%= f.text_field :grand_total %>
+        <div class = "field">
+            <p>Items</p>
         </div>
         <div class="field">
             <%= f.label :address %><br />
-            <%= f.collection_select :address_id, Address.active.by_recipient.all, :id, :full_address, prompt: "Select an address..." %>
+           <%= f.collection_select :address_id, Address.active.by_recipient.all, :id, :full_address, prompt: "Select an address..." %>
         </div>
         <br>
         <div class="actions">
@@ -26,4 +24,3 @@
         </div>
     </fieldset>
 <% end %>
-

@@ -3,9 +3,10 @@
     <legend><%= controller.action_name.capitalize %> User</legend>
       <div class="field">
         <%= f.input :username %>
-		
+          <% if logged_in? && current_user.role?(:customer) %>
 		<%= f.input :password %>
 		<%= f.input :password_confirmation %>
+          <% end %>
 		<%= f.input :role, :collection => ["admin", "baker", "shipper", "customer"], :prompt => true %>
             <%= f.check_box :active %>
             <%= f.label :active %>
