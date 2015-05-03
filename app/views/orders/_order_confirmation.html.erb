@@ -5,6 +5,5 @@
 
 <h3>Credit Card Information</h3>
 <ul>
-    <li><%= @order.credit_card_type %></li>
-    <li>********<%= @order.credit_card_number[-4..-1] %></li>
+    <li><%= @order.credit_card_type %> ********<%= @order.credit_card_number[-4..-1] %></li>
 </ul>

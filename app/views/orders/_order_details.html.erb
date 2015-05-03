@@ -9,7 +9,7 @@
 </p>
 
 <p>
-  <b>Total Weight</b>: <%= @order.total_weight.round(2) %>
+    <%= render partial: 'order_items' %>
 </p>
 
 <p>
@@ -19,9 +19,3 @@
 <p>
   <b>Total Cost</b>: <%= number_to_currency @order.grand_total %>
 </p>
-
-<p>
-    <% render partial: 'order_items' %>
-</p>
-
-<p>

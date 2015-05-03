@@ -3,7 +3,6 @@
 
 <% unless @all_items.empty? %>
     <div class="panel clearfix">
-        <h3>Customers who bought this item also bought ... </h3>
         <ul>
             <% @all_items.each do |item| %>
                 <% unless item.picture_url.nil? %>

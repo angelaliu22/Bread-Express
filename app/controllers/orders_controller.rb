@@ -45,6 +45,7 @@ class OrdersController < ApplicationController
   #set some params for the payment receipt 
     @order.date = Date.today
     @order.customer_id = current_user.customer.id
+      @order.grand_total = @cart_subtotal + @order.shipping_costs
       
     if @order.save
         save_each_item_in_cart(@order)
