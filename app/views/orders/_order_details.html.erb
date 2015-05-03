@@ -9,7 +9,7 @@
 </p>
 
 <p>
-    <%= render partial: 'order_items' %>
+    <%= render partial: 'order_items', locals: {order_items: @cart_order_items}%>
 </p>
 
 <p>
