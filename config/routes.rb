@@ -35,6 +35,7 @@ BreadExpress::Application.routes.draw do
     
     get 'items_to_bake' => 'home#items_to_bake', as: :items_to_bake
     get 'orders_to_ship' => 'home#orders_to_ship', as: :orders_to_ship
+    get 'order_has_been_shipped/:id' => 'home#order_has_been_shipped', as: :order_has_been_shipped
 
 
   

@@ -17,6 +17,14 @@ class HomeController < ApplicationController
         @unshipped_orders = Order.not_shipped.paginate(:page => params[:page]).per_page(10) 
     end
     
+    def order_has_been_shipped
+        @order_items = OrderItem.find_all_by_order_id(params[:id])
+        @order_items.each do |oi|
+            oi.shipped_on = Date.today
+            oi.save!
+        end
+        redirect_to home_path, notice: "Order #{params[:id]} has been shipped!"
+    end
     
   def about
   end

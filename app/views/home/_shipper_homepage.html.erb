@@ -7,9 +7,10 @@
       <tr>
         <th width="100">Order Number</th>
         <th width="125">Customer</th>
-        <th width="200">Order Items</th>
+        <th width="150">Order Items</th>
         <th width="125">Recipient</th>
         <th width="225">Address</th>
+        <th width="100">&nbsp;</th>
       </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
             </td>
             <td><%= Address.find_by_id(order.address_id).recipient %></td>      
             <td><%= Address.find_by_id(order.address_id).full_address %></td>
+            <td><%= link_to "Shipped", order_has_been_shipped_path(order.id), class: "btn tiny radius warning" %></td>
         </tr>
       <% end %>
     </tbody>
