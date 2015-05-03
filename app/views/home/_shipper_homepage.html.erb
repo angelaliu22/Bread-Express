@@ -1,1 +1,34 @@
-<% render partial: 'unshipped_orders' %>
+<% if @unshipped_orders.empty? %>
+  <h4>Nothing to ship at this time!</h4>
+<% else %>
+  <h4>Unshipped Orders</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="100">Order Number</th>
+        <th width="125">Customer</th>
+        <th width="225">Order Items</th>
+        <th width="225">Recipient</th>
+        <th width="225">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @unshipped_orders.each do |order| %>
+        <tr>
+            <td><%= link_to order.id, order_path(order) %></td>
+            <td><%= link_to Customer.find_by_id(order.customer_id).proper_name, customers_path(Customer.find_by_id(order.customer_id)) %></td>
+            <td>
+                <% order.order_items.each do |oi| %>
+                <li><%= link_to oi.item.name, items_path(oi.item) %></li>
+                <li>Quantity: <%= oi.quantity %></li>
+                <% end %> 
+            </td>
+            <td><%= Address.find_by_id(order.address_id).recipient %></td>      
+            <td><%= Address.find_by_id(order.address_id).full_address %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+<%= will_paginate @unshipped_orders, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>
+<p>&nbsp;</p>
