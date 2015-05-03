@@ -32,6 +32,9 @@ BreadExpress::Application.routes.draw do
     get 'remove_item/:id' => 'orders#remove_item', as: :remove_item
     get 'view_cart' => 'orders#view_cart', as: :view_cart
     get 'checkout_cart' => 'orders#checkout_cart', as: :checkout_cart
+    
+    get 'items_to_bake' => 'home#items_to_bake', as: :items_to_bake
+    get 'orders_to_ship' => 'home#orders_to_ship', as: :orders_to_ship
 
 
   

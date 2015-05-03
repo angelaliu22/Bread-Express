@@ -1,21 +1,28 @@
 <% if logged_in? && current_user.role?(:admin) %>
-    <p>Here is a dashboard of the current status of Bread Express</p>
+    <div class = "row admin-homepage">
+        <p>Here is a dashboard of the current status of Bread Express</p>
+        <%= render partial: 'admin_homepage' %>
+    </div>
 
 <% elsif logged_in? && current_user.role?(:baker) %>
-    <p>Here are all the items that need to be baked</p>
-<%= render partial: 'baker_homepage' %>
+    <div class = "row baker-homepage">
+        <p>Here are all the items that need to be baked</p>
+        <%= render partial: 'baker_homepage' %>
+    </div>
 
 <% elsif logged_in? && current_user.role?(:shipper) %>
-    <p>Here are all the orders that need to be shipped</p>
-    <%= render partial: 'shipper_homepage' %>
-
+    <div class = "row shipper-homepage">
+        <p>Here are all the orders that need to be shipped</p>
+        <%= render partial: 'shipper_homepage' %>
+    </div>
+        
 <% elsif logged_in? && current_user.role?(:customer) %>
     <p>Welcome Back!</p>
 
 <% else %> 
     <h2>Welcome To A &amp; M Bread Express</h2>
     <br />
-    <div class="row">
+    <div class="row customer-homepage">
         <div class="small-7 columns">
             <p>
                 Bread Express is the smallest, but absolutely best, online bakery 

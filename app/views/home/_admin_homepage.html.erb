@@ -1,0 +1,10 @@
+<div class = "dash_box" id = "items_to_bake">
+    <%= link_to @num_items_to_bake, items_to_bake_path %>
+    <%= link_to "Items to Bake", items_to_bake_path %>
+</div>
+
+<div class = "dash_box" id = "orders_to_ship">
+    <%= link_to @num_unshipped_orders.length, orders_to_ship_path %>
+    <%= link_to "Orders to Ship", orders_to_ship_path %>
+</div>
+

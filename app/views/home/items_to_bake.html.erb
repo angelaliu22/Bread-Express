@@ -1,0 +1,23 @@
+<% if @items_to_bake.empty? %>
+  <h4>No unbaked items at this time!</h4>
+<% else %>
+  <h4>Items to Bake</h4>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="225">Name</th>
+        <th width="125">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @items_to_bake.each do |order_item| %>
+        <tr>
+            <td><%= link_to order_item.item.name, item_path(order_item.item) %></td>
+            <td><%= order_item.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+<%= will_paginate @items_to_bake, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+<% end %>
+<p>&nbsp;</p>
