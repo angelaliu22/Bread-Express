@@ -6,11 +6,9 @@
 </div>
 
 
-
 <% if logged_in? && current_user.role?(:admin) %>
     <!-- Add buttons to list all, edit project or destroy object -->
 <%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>
-<%= link_to "Edit Item", edit_item_path, class: "btn" %>
 
 <%= render partial: 'item_price_history' %>
 
