@@ -1,0 +1,27 @@
+<div class="panel clearfix">
+    <% unless items.empty? %>
+    <ul>
+        <h3><%= type %></h3>
+        <% items.each do |item| %>
+            <% if item.picture_url.nil? %>
+            <p><%= image_tag 'image-placeholder.png' %></p>  
+            <% else %>
+                <p><%= image_tag item.picture_url %></p>  
+            <% end %>
+        <li>Name: <%= link_to item.name, item_path(item) %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+        <li>Price: <%= link_to item.current_price, item_path(item) %></li>  
+        <li>Units: <%= link_to item.units_per_item, item_path(item) %></li>
+        <%= link_to "Add to Cart", add_item_path(item.id) %>
+        <br>
+        <td>
+            <%= link_to(edit_item_path(item), class: 'button tiny radius warning') do %>
+            &nbsp;Edit&nbsp;
+          <% end %>
+        </td>
+        <br>
+        <br>
+
+      <% end %>
+    </ul>
+    <% end %>
+</div>

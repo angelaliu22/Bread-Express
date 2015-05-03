@@ -38,7 +38,7 @@ class ItemPricessController < ApplicationController
   end
 
   def update
-      if @item_price.update(item_price_params)
+      if @item_price.item_price_attributes(item_price_params)
           redirect_to @item_price, notice: "Your item was revised in the system."
     else
       render action: 'edit'
@@ -56,7 +56,7 @@ class ItemPricessController < ApplicationController
     end
 
     def item_price_params
-        params.require(:item).permit(:id, :price, :start_date, :end_date)  
+        params.require(:item_price).permit(:id, :price, :start_date, :end_date)  
     end
     
 end

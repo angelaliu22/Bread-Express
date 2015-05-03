@@ -8,28 +8,9 @@ class ItemsController < ApplicationController
   # authorize_resource
 
   def index
-      if !logged_in?
-           @active_items = Item.active.paginate(:page => params[:page]).per_page(10)
-          
-      elsif logged_in? && current_user.role?(:admin)
-          @active_items = Item.active.paginate(:page => params[:page]).per_page(10)
-          @inactive_items = Item.inactive.paginate(:page => params[:page]).per_page(10)
-          @price_history = ItemPrice.for_item(params[:id]).paginate(:page => params[:page]).per_page(10)
-          
-      elsif logged_in? && current_user.role?(:customer)
-          @active_items = Item.active.paginate(:page => params[:page]).per_page(10)
-          @related_items = Item.for_category(params[:category]).paginate(:page => params[:page]).per_page(10)
-          
-      elsif logged_in? && current_user.role?(:baker)
-        @active_items = Item.active.paginate(:page => params[:page]).per_page(10)
-          @unshipped_items = OrderItem.unshipped.paginate(:page => params[:page]).per_page(10)
-          
-        elsif logged_in? && current_user.role?(:shipper)
-            @active_items = Item.active.paginate(:page => params[:page]).per_page(10)
-            
-      else
-    
-      end
+      @bread_items = Item.active.for_category("bread").paginate(:page => params[:page]).per_page(10)
+      @muffin_items = Item.active.for_category("muffins").paginate(:page => params[:page]).per_page(10)
+      @pastry_items = Item.active.for_category("pastries").paginate(:page => params[:page]).per_page(10)
   end
 
   def show
@@ -72,7 +53,7 @@ class ItemsController < ApplicationController
       authorize! :destroy, @item
       @item.destroy
       flash[:notice] = "Successfully removed #{@item.name} from Bread Express."
-      redirect_to @item
+      redirect_to items_path
   end
   
 
