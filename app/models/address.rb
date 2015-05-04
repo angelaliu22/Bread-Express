@@ -26,7 +26,7 @@ class Address < ActiveRecord::Base
 
     
     def full_address
-        "#{recipient} : #{street_1} #{street_2}, #{city}, #{state} #{zip}"
+        "#{recipient} : #{street_1} #{street_2} #{city}, #{state} #{zip}"
     end
     
   def already_exists?

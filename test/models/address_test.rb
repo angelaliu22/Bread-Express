@@ -30,6 +30,13 @@ class AddressTest < ActiveSupport::TestCase
       destroy_addresses
     end
 
+      should "give the full address of an address object that includes recipient and all mailing address details" do 
+          assert_equal "Jeff Egan : 4000 Forbes Ave  Pittsburgh, PA 15212", @alexe_a2.full_address
+          assert_equal "Alex Egan : 5000 Forbes Avenue  Pittsburgh, PA 15213", @alexe_a1.full_address
+      end
+
+#{recipient} : #{street_1} #{street_2} #{city}, #{state} #{zip}"
+      
     should "show that by_recipient places addresses in alphabetical order" do
       assert_equal ["Alex Egan", "Anthony Corletti", "Jeff Egan", "Melanie Freeman", "Ryan Flood", "Zach Egan"], Address.by_recipient.all.map(&:recipient)
     end
