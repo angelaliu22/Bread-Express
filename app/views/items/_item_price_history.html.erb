@@ -14,8 +14,10 @@
   <tbody>
       <% @item_price_history.each do |price| %>
       <tr>
-          <td><%= price.start_date %></td>
-          <td><%= price.end_date %></td>
+          <td><%= price.start_date.strftime('%m/%d/%y') %></td>
+          <% if price.end_date != nil %>
+          <td><%= price.end_date.strftime('%m/%d/%y') %></td>
+          <% end %>
           <td><%= number_to_currency price.price %></td>
       </tr>
     <% end %>

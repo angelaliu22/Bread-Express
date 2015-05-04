@@ -1,4 +1,4 @@
-class ItemPricessController < ApplicationController
+class ItemPricesController < ApplicationController
     
     include BreadExpressHelpers::Cart
     include BreadExpressHelpers::Shipping
@@ -28,11 +28,10 @@ class ItemPricessController < ApplicationController
       authorize! :create, @item_price
       if @item_price.save
       # if saved to database
-          flash[:notice] = "#{@item.name} has been created."
-          redirect_to @item 
+          redirect_to item_path(@item_price.item)
     else
       # return to the 'new' form
-      render :action => 'new'
+          redirect_to item_path(@item_price.item), error: "#{@item_price.errors.full_messages}"
     end
   end
 
@@ -55,7 +54,7 @@ class ItemPricessController < ApplicationController
     end
 
     def item_price_params
-        params.require(:item_price).permit(:id, :price, :start_date, :end_date)  
+        params.require(:item_price).permit(:id, :item_id, :price, :start_date, :end_date)  
     end
     
 end

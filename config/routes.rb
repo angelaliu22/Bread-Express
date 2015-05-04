@@ -7,6 +7,7 @@ BreadExpress::Application.routes.draw do
     resources :sessions
     resources :users
     resources :items
+    resources :item_prices
 
 
     # Authentication routes

@@ -17,8 +17,9 @@ class ItemsController < ApplicationController
   end
 
   def show
+      @item_price = ItemPrice.new
       authorize! :show, @item
-      @item_price_history = ItemPrice.for_item(@item.id).chronological.paginate(:page => params[:page]).per_page(10)
+      @item_price_history = ItemPrice.chronological.for_item(@item.id).paginate(:page => params[:page]).per_page(10)
       
       @related_items = Item.for_category(@item.category).paginate(:page => params[:page]).per_page(10)
   end
