@@ -1,0 +1,12 @@
+<%= simple_form_for @item_price, html: { class: 'form-horizontal' } do |f| %>
+
+  <fieldset>
+        <div class="field">
+            <%= f.input :price %><br />
+        </div>
+        <br>
+        <div class="actions">
+            <%= f.submit nil, class: "btn submit-button" %>
+        </div>
+    </fieldset>
+<% end %>

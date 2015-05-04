@@ -1,4 +1,4 @@
-<%= simple_nested_form_for @item, :html => { :class => 'form-horizontal' } do |item_form| %>
+<%= simple_form_for @item, :html => { :class => 'form-horizontal' } do |item_form| %>
     <div class="row">
       <div class="span7">
         <fieldset>
@@ -15,12 +15,8 @@
           <legend> New Item </legend>
             <div class = "field">
                 <%= render :partial => "item_fields", :locals => { :f => item_form } %>
-            
-            <div id="item_price_form">
-                <%= item_form.simple_fields_for :item_prices do |item_price_form| %>
-                <%= item_price_form.input :price %>
-                  <% end %>
             </div>
+            
         </fieldset>
         </div> 
       </div>

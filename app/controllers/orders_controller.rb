@@ -91,7 +91,13 @@ class OrdersController < ApplicationController
         @order = Order.new
         @cart_order_items = get_list_of_items_in_cart
         @cart_subtotal = calculate_cart_items_cost
-        @customer_id = current_user.customer.id
+        if logged_in? && current_user.role?(:customer)
+            @customer_id = current_user.customer.id
+        elsif logged_in? && current_user.role?(:admin)
+            @customer_id = current_user.id
+        else
+        end
+            
     end
 
   private

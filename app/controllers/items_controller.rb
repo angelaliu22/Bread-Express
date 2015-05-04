@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
       @item_price_history = ItemPrice.for_item(@item.id).chronological.paginate(:page => params[:page]).per_page(10)
       
       @related_items = Item.for_category(@item.category).paginate(:page => params[:page]).per_page(10)
-      
   end
 
   def new

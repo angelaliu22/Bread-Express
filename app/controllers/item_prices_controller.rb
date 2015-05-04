@@ -25,7 +25,6 @@ class ItemPricessController < ApplicationController
 
   def create
       @item_price = ItemPrice.new(item_price_params)
-#      params[:item][:item_price_attributes][:start_date] = Date.today
       authorize! :create, @item_price
       if @item_price.save
       # if saved to database

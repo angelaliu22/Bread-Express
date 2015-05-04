@@ -17,8 +17,17 @@
             <%= f.input :credit_card_number %><br />
             <%= f.input :expiration_year %><br />
             <%= f.input :expiration_month %><br />
-            <%= f.collection_select :address_id, Address.active.by_recipient.where(customer_id: current_user.customer.id), :id, :full_address, prompt: "Select an address..." %>
+            <% if logged_in? && current_user.role?(:customer) %>
+            <%= f.label :address %>
+                <%= f.collection_select :address_id, Address.active.by_recipient.where(customer_id: current_user.customer.id), :id, :full_address, prompt: "Select an address..." %>
             
+            <% elsif logged_in? && current_user.role?(:admin) %>
+            <%= f.label :customer %>
+            <%= f.collection_select :customer_id, Customer.active.alphabetical.all, :id, :name, prompt: "Select a customer..." %>
+            <%= f.label :address %>
+           <%= f.collection_select :address_id, Address.active.all, :id, :full_address, prompt: "Select an address..." %>
+            <% else %>
+            <% end %>
         </div>
         <br>
         <div class="actions">

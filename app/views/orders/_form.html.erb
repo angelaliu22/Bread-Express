@@ -3,7 +3,7 @@
   <fieldset>
         <% if @order.errors.any? %>
             <div id="error_explanation">
-                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this customer's information from being saved:</h2>
+                <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
                 <ul>
                     <% @order.errors.full_messages.each do |msg| %>
                         <li><%= msg %></li>
@@ -12,7 +12,7 @@
             </div>
         <% end %>
         <div class = "field">
-            <p>Items</p>
+            <p>Order</p>
         </div>
         <div class="field">
             <%= f.label :address %><br />
