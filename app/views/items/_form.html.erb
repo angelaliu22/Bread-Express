@@ -17,7 +17,7 @@
                 <%= render :partial => "item_fields", :locals => { :f => item_form } %>
             
             <div id="item_price_form">
-                <%= item_form.simple_fields_for :item_price do |item_price_form| %>
+                <%= item_form.simple_fields_for :item_prices do |item_price_form| %>
                 <%= item_price_form.input :price %>
                   <% end %>
             </div>

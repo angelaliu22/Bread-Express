@@ -41,7 +41,8 @@ group :development do
   gem 'wirble', '0.1.3'
   gem 'hirb', '0.7.2'
   gem 'faker', '1.4.3'
-    gem 'materialize-sass'
+  gem 'materialize-sass'
+  gem 'web-console'
 end
 
 # Gems used only in testing

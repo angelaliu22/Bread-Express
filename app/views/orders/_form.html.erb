@@ -18,6 +18,7 @@
             <%= f.label :address %><br />
            <%= f.collection_select :address_id, Address.active.by_recipient.all, :id, :full_address, prompt: "Select an address..." %>
         </div>
+      <%= f.association :customer, as: :select %>
         <br>
         <div class="actions">
             <%= f.submit nil, class: "btn submit-button" %>
