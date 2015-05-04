@@ -3,7 +3,7 @@
     <p><%= image_tag @item.picture_url %></p>
 <% end %>
 <p>
-    <b>Price</b>: $<%= @item.current_price %>
+    <b>Price</b>: <%= number_to_currency @item.current_price %>
 </p>
 <p>
     <b>Description</b>: <%=  @item.description %>
@@ -13,7 +13,7 @@
     <b>Units Per Item</b>: <%=  @item.units_per_item %>
 </p>
 <p>
-    <b>Total Weight:</b>: <%=@item.weight %>
+    <b>Total weight:</b> <%= @item.weight %>&nbsp;lbs.
 </p>
 
 <% if logged_in? && current_user.role?(:admin) %>

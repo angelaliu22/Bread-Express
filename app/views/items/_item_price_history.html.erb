@@ -16,7 +16,7 @@
       <tr>
           <td><%= price.start_date %></td>
           <td><%= price.end_date %></td>
-          <td><%= price.price %></td>
+          <td><%= number_to_currency price.price %></td>
       </tr>
     <% end %>
   </tbody>

@@ -6,11 +6,11 @@
         <% end %>
         <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
         <li><p>Quantity: </p> <%= order_item.quantity %></li>
-        <li><p>Subtotal: </p> <%= order_item.subtotal %></li>
+        <li><p>Subtotal: </p> <%= number_to_currency order_item.subtotal %></li>
   <% end %>
-    <p>Order Subtotal: </p><%= @cart_subtotal %>
-    <p>Shipping Cost: </p> <%= @order.shipping_costs %>
-    <p> Grand Total: </p> <%= @cart_subtotal + @order.shipping_costs %>
+    <p>Order Subtotal: </p> <%=number_to_currency @cart_subtotal %>
+    <p>Shipping Cost: </p> <%=number_to_currency @order.shipping_costs %>
+    <p> Grand Total: </p> <%= number_to_currency (@cart_subtotal + @order.shipping_costs) %>
     
 </ul>
 <%= render partial: 'checkout_order_info' %>

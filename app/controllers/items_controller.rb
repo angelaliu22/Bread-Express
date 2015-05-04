@@ -8,10 +8,12 @@ class ItemsController < ApplicationController
   # authorize_resource
 
   def index
+      @all_items = Item.active.all
       @bread_items = Item.active.for_category("bread").paginate(:page => params[:page]).per_page(10)
       @muffin_items = Item.active.for_category("muffins").paginate(:page => params[:page]).per_page(10)
       @pastry_items = Item.active.for_category("pastries").paginate(:page => params[:page]).per_page(10)
       
+      @unit = ""
   end
 
   def show
@@ -37,7 +39,7 @@ class ItemsController < ApplicationController
       authorize! :create, @item
       if @item.save
       # if saved to database
-          flash[:notice] = "#{@item.name} has been created."
+          flash[:notice] = "#{@item.name} was added to the system"
           redirect_to @item # go to show task page
     else
       # return to the 'new' form

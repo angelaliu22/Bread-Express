@@ -27,12 +27,6 @@
     </div>
     <div class="form-actions">
         <%= item_form.submit nil, :class => 'button radius' %>
-        <%= link_to(eval("item_path(@item)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this item?"}, class: 'button radius alert') do %>
-        <!-- <i class="fa fa-trash-o"></i> -->
-        &nbsp;<%= "Delete Item" %>
-            <% end %>
-        <% end %>
         <%= link_to 'Cancel', home_path, :class => 'button secondary' %>
-        <% if logged_in? && current_user.role?(:admin) %>
     </div>
   <% end %>

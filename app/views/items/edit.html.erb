@@ -1,1 +1,7 @@
 <%= render :partial => "form" %>
+ <% if logged_in? && current_user.role?(:admin) %>
+        <%= link_to(eval("items_path"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete this item?"}, class: 'button radius alert') do %>
+        <!-- <i class="fa fa-trash-o"></i> -->
+        &nbsp;<%= "Delete Item" %>
+    <% end %>
+<% end %>

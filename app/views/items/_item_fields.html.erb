@@ -8,7 +8,7 @@
 <%= f.input :name %>
 
 <%= f.input :description %>
-<%= f.input :category, :collection => ["bread", "muffins", "pastries"], :prompt => true %>
+<%= f.input :category, collection: Item::CATEGORIES, include_blank: true, input_html: {class: "avg"} %>
 
 <%= f.input :units_per_item %>
 <%= f.input :weight %>
