@@ -14,12 +14,6 @@
     <div id="title_area">
       <%= link_to image_tag('breadexpress_title.png'), home_path %>
         <% if logged_in? && (current_user.role?(:customer) || current_user.role?(:admin)) %>
-            <% unless empty_cart? %>
-                <div class = "nav-cart">
-                    <%= link_to image_tag('cart.png'), view_cart_path %>
-                    <%= num_items_in_cart %>
-                </div>
-            <% end %>
         <% end %>
         <%= render :partial => "partials/nav" %>
         <% if logged_in? && current_user.role?(:customer)%>

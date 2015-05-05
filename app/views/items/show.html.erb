@@ -9,6 +9,7 @@
 
 <% if logged_in? && current_user.role?(:admin) %>
     <!-- Add buttons to list all, edit project or destroy object -->
+<%= link_to "Add to Cart", add_item_path(@item.id) %>
 <%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>
 
 <%= render partial: 'item_price_history' %>
