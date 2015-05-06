@@ -38,7 +38,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+// $body-font-family: 'Roboto', sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -212,21 +212,6 @@ $warning-color: #f2dede;
 // $microformat-abbr-font-weight: bold;
 // $microformat-abbr-font-decoration: none;
 
-// Accordion
-
-// $include-html-accordion-classes: $include-html-classes;
-
-// $accordion-navigation-padding: rem-calc(16);
-// $accordion-navigation-bg-color: #efefef  ;
-// $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
-// $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
-// $accordion-navigation-font-color: #222;
-// $accordion-navigation-font-size: rem-calc(16);
-// $accordion-navigation-font-family: $body-font-family;
-
-// $accordion-content-padding: $column-gutter/2;
-// $accordion-content-active-bg-color: #fff;
-
 // Alert Boxes
 
 // $include-html-alert-classes: $include-html-classes;
@@ -346,114 +331,8 @@ $button-font-lrg: rem-calc(17);
 // We use this to set default opacity for disabled buttons.
 // $button-disabled-opacity: 0.7;
 
-// Button Groups
 
-// $include-html-button-classes: $include-html-classes;
 
-// Sets the margin for the right side by default, and the left margin if right-to-left direction is used
-// $button-bar-margin-opposite: rem-calc(10);
-// $button-group-border-width: 1px;
-
-// Clearing
-
-// $include-html-clearing-classes: $include-html-classes;
-
-// We use these to set the background colors for parts of Clearing.
-// $clearing-bg: #333;
-// $clearing-caption-bg: $clearing-bg;
-// $clearing-carousel-bg: rgba (51,51,51,0.8);
-// $clearing-img-bg: $clearing-bg;
-
-// We use these to style the close button
-// $clearing-close-color: #ccc;
-// $clearing-close-size: 30px;
-
-// We use these to style the arrows
-// $clearing-arrow-size: 12px;
-// $clearing-arrow-color: $clearing-close-color;
-
-// We use these to style captions
-// $clearing-caption-font-color: #ccc;
-// $clearing-caption-font-size: 0.875em;
-// $clearing-caption-padding: 10px 30px 20px;
-
-// We use these to make the image and carousel height and style
-// $clearing-active-img-height: 85%;
-// $clearing-carousel-height: 120px;
-// $clearing-carousel-thumb-width: 120px;
-// $clearing-carousel-thumb-active-border: 1px solid rgb(255,255,255);
-
-// Dropdown
-
-// $include-html-dropdown-classes: $include-html-classes;
-
-// We use these to controls height and width styles.
-// $f-dropdown-max-width: 200px;
-// $f-dropdown-height: auto;
-// $f-dropdown-max-height: none;
-// $f-dropdown-margin-top: 2px;
-
-// We use this to control the background color
-// $f-dropdown-bg: #fff;
-
-// We use this to set the border styles for dropdowns.
-// $f-dropdown-border-style: solid;
-// $f-dropdown-border-width: 1px;
-// $f-dropdown-border-color: scale-color(#fff, $lightness: -20%);
-
-// We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
-// $f-dropdown-triangle-color: #fff;
-// $f-dropdown-triangle-side-offset: 10px;
-
-// We use these to control styles for the list elements.
-// $f-dropdown-list-style: none;
-// $f-dropdown-font-color: #555;
-// $f-dropdown-font-size: rem-calc(14);
-// $f-dropdown-list-padding: rem-calc(5, 10);
-// $f-dropdown-line-height: rem-calc(18);
-// $f-dropdown-list-hover-bg: #eeeeee  ;
-// $dropdown-mobile-default-float: 0;
-
-// We use this to control the styles for when the dropdown has custom content.
-// $f-dropdown-content-padding: rem-calc(20);
-
-// Dropdown Buttons
-
-// $include-html-button-classes: $include-html-classes;
-
-// We use these to set the color of the pip in dropdown buttons
-// $dropdown-button-pip-color: #fff;
-// $dropdown-button-pip-color-alt: #333;
-
-// $button-pip-tny: rem-calc(6);
-// $button-pip-sml: rem-calc(7);
-// $button-pip-med: rem-calc(9);
-// $button-pip-lrg: rem-calc(11);
-
-// We use these to style tiny dropdown buttons
-// $dropdown-button-padding-tny: $button-pip-tny * 7;
-// $dropdown-button-pip-size-tny: $button-pip-tny;
-// $dropdown-button-pip-opposite-tny: $button-pip-tny * 3;
-// $dropdown-button-pip-top-tny: -$button-pip-tny / 2 + rem-calc(1);
-
-// We use these to style small dropdown buttons
-// $dropdown-button-padding-sml: $button-pip-sml * 7;
-// $dropdown-button-pip-size-sml: $button-pip-sml;
-// $dropdown-button-pip-opposite-sml: $button-pip-sml * 3;
-// $dropdown-button-pip-top-sml: -$button-pip-sml / 2 + rem-calc(1);
-
-// We use these to style medium dropdown buttons
-// $dropdown-button-padding-med: $button-pip-med * 6 + rem-calc(3);
-// $dropdown-button-pip-size-med: $button-pip-med - rem-calc(3);
-// $dropdown-button-pip-opposite-med: $button-pip-med * 2.5;
-// $dropdown-button-pip-top-med: -$button-pip-med / 2 + rem-calc(2);
-
-// We use these to style large dropdown buttons
-// $dropdown-button-padding-lrg: $button-pip-lrg * 5 + rem-calc(3);
-// $dropdown-button-pip-size-lrg: $button-pip-lrg - rem-calc(6);
-// $dropdown-button-pip-opposite-lrg: $button-pip-lrg * 2.5;
-// $dropdown-button-pip-top-lrg: -$button-pip-lrg / 2 + rem-calc(3);
 
 // Flex Video
 
@@ -701,21 +580,6 @@ $button-font-lrg: rem-calc(17);
 // $orbit-caption-padding: rem-calc(10 14);
 // $orbit-caption-height: auto;
 
-// We use these to control the left/right nav styles
-// $orbit-nav-bg: none;
-// $orbit-nav-bg-hover: rgba(0,0,0,0.3);
-// $orbit-nav-arrow-color: #fff;
-// $orbit-nav-arrow-color-hover: #fff;
-
-// We use these to control the timer styles
-// $orbit-timer-bg: rgba(255,255,255,0.3);
-// $orbit-timer-show-progress-bar: true;
-
-// We use these to control the bullet nav styles
-// $orbit-bullet-nav-color: #ccc;
-// $orbit-bullet-nav-color-active: #999;
-// $orbit-bullet-radius: rem-calc(9);
-
 // We use these to controls the style of slide numbers
 // $orbit-slide-number-bg: rgba(0,0,0,0);
 // $orbit-slide-number-font-color: #fff;
@@ -887,33 +751,6 @@ $panel-bg: scale-color(#f9f2e4, $lightness: 50%);
 // $reveal-modal-class: "reveal-modal";
 // $close-reveal-modal-class: "close-reveal-modal";
 
-// Side Nav
-
-// $include-html-nav-classes: $include-html-classes;
-
-// We use this to control padding.
-// $side-nav-padding: rem-calc(14 0);
-
-// We use these to control list styles.
-// $side-nav-list-type: none;
-// $side-nav-list-position: inside;
-// $side-nav-list-margin: rem-calc(0 0 7 0);
-
-// We use these to control link styles.
-// $side-nav-link-color: $primary-color;
-// $side-nav-link-color-active: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-link-color-hover: scale-color($side-nav-link-color, $lightness: 30%);
-// $side-nav-font-size: rem-calc(14);
-// $side-nav-font-weight: normal;
-// $side-nav-font-family: $body-font-family;
-// $side-nav-active-font-family: $side-nav-font-family;
-
-
-
-// We use these to control border styles
-// $side-nav-divider-size: 1px;
-// $side-nav-divider-style: solid;
-// $side-nav-divider-color: scale-color(#fff, $lightness: -10%);
 
 // Split Buttons
 
@@ -982,50 +819,6 @@ $panel-bg: scale-color(#f9f2e4, $lightness: 50%);
 
 // $sub-nav-item-divider: "";
 // $sub-nav-item-divider-margin: rem-calc(12);
-
-//
-// SWITCH
-//
-
-// $include-html-form-classes: $include-html-classes;
-
-// Controlling border styles and background colors for the switch container
-// $switch-border-color: scale-color(#fff, $lightness: -20%);
-// $switch-border-style: solid;
-// $switch-border-width: 1px;
-// $switch-bg: #fff;
-
-// We use these to control the switch heights for our default classes
-// $switch-height-tny: 22px;
-// $switch-height-sml: 28px;
-// $switch-height-med: 36px;
-// $switch-height-lrg: 44px;
-// $switch-bottom-margin: rem-calc(20);
-
-// We use these to control default font sizes for our classes.
-// $switch-font-size-tny: 11px;
-// $switch-font-size-sml: 12px;
-// $switch-font-size-med: 14px;
-// $switch-font-size-lrg: 17px;
-// $switch-label-side-padding: 6px;
-
-// We use these to style the switch-paddle
-// $switch-paddle-bg: #fff;
-// $switch-paddle-fade-to-color: scale-color($switch-paddle-bg, $lightness: -10%);
-// $switch-paddle-border-color: scale-color($switch-paddle-bg, $lightness: -35%);
-// $switch-paddle-border-width: 1px;
-// $switch-paddle-border-style: solid;
-// $switch-paddle-transition-speed: .1s;
-// $switch-paddle-transition-ease: ease-out;
-// $switch-positive-color: scale-color($success-color, $lightness: 94%);
-// $switch-negative-color: #f5f5f5;
-
-// Outline Style for tabbing through switches
-// $switch-label-outline: 1px dotted #888;
-
-// Tables
-
-// $include-html-table-classes: $include-html-classes;
 
 // These control the background color for the table and even rows
 // $table-bg: #fff;
@@ -1116,154 +909,16 @@ $table-margin-bottom: rem-calc(25);
 // $tooltip-rounded: $global-rounded;
 // $tooltip-pip-size: 5px;
 
-//
-// TOP BAR
-//
-
-// $include-html-top-bar-classes: $include-html-classes;
-
-// Background color for the top bar
-$topbar-bg-color: #f9ca97;
-// $topbar-bg: $topbar-bg-color;
-
-// Height and margin
-// $topbar-height: 45px;
-// $topbar-margin-bottom: 0;
-
-// Controlling the styles for the title in the top bar
-// $topbar-title-weight: normal;
-// $topbar-title-font-size: rem-calc(17);
-
-// Style the top bar dropdown elements
-$topbar-dropdown-bg: #934F49; // #f9ca97;
-// $topbar-dropdown-link-color: #fff;
-// $topbar-dropdown-link-bg: #333;
-// $topbar-dropdown-link-weight: normal;
-// $topbar-dropdown-toggle-size: 5px;
-// $topbar-dropdown-toggle-color: #fff;
-// $topbar-dropdown-toggle-alpha: 0.4;
-
-// Set the link colors and styles for top-level nav
-// $topbar-link-color: #fff;
-// $topbar-link-color-hover: #fff;
-// $topbar-link-color-active: #fff;
-// $topbar-link-color-active-hover: #fff;
-// $topbar-link-weight: normal;
-$topbar-link-font-size: rem-calc(15);
-// $topbar-link-hover-lightness: -10%; // Darken by 10%
-$topbar-link-bg-hover: #934F49; // #0F73D6;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
-// $topbar-link-font-family: $body-font-family;
-
-// $topbar-button-font-size: 0.75rem;
-
-// $topbar-dropdown-label-color: #777;
-// $topbar-dropdown-label-text-transform: uppercase;
-// $topbar-dropdown-label-font-weight: bold;
-// $topbar-dropdown-label-font-size: rem-calc(10);
-// $topbar-dropdown-label-bg: #333;
-
-// Top menu icon styles
-// $topbar-menu-link-transform: uppercase;
-// $topbar-menu-link-font-size: rem-calc(13);
-// $topbar-menu-link-weight: bold;
-// $topbar-menu-link-color: #fff;
-// $topbar-menu-icon-color: #fff;
-// $topbar-menu-link-color-toggled: #888;
-// $topbar-menu-icon-color-toggled: #888;
-
-// Transitions and breakpoint styles
-// $topbar-transition-speed: 300ms;
-// Using rem-calc for the below breakpoint causes issues with top bar
-// $topbar-breakpoint: #{upper-bound($medium-range)}; // Change to 9999px for always mobile layout
-// $topbar-media-query: "only screen and (min-width: #{upper-bound($medium-range)})";
-
-// Divider Styles
-// $topbar-divider-border-bottom: solid 1px  scale-color($topbar-bg-color, $lightness: 13%);
-// $topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%);
-
-// Sticky Class
-// $topbar-sticky-class: ".sticky";
-// $topbar-arrows: true; //Set false to remove the triangle icon from the menu item
 
 //
 // VISIBILITY CLASSES
 //
 
 // $include-html-visibility-classes: $include-html-classes;
-
-
-.tl_name {
-  width: 225px;
-  display: block;
-  position: absolute;
-}
-
-.tl_date {
-  width: 65px;
-  display: block;
-  position: absolute;
-  margin-left: 250px;
-}
-
-.tl_controls {
-  width:  68px;
-  display: block;
-  margin-left: 330px;
-}
-
-.project_item {
-  background-color: #d1ecfb;
-  width: 400px;
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 1px solid blue;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-.supertiny {
-  font-size:5px;
-  text-decoration:none;
-}
-
 .add_link {
   font-size:75%;
   font-style: normal;
   font-weight: normal;
-}
-
-#title_area {
-  background-color: #f9ca97;
-}
-
-#main_content {
-  margin-top: 10px;
-}
-
-#footer {
-  margin-top: 15px;
-  padding-top: 0px;
-  padding-bottom: 15px;
-  background-color:#f9ca97;
-  color: #934F49;
-  text-align: center;
-    padding: 50px;
-}
-
-#footer a {
-  color: #934F49;
-  text-decoration: none;
-}
-
-#footer a:hover {
-  color: #C18E67;
-  text-decoration: underline;
-}
-
-#copy {
-  font-size: 85%;
 }
 
 table {
@@ -1277,10 +932,6 @@ table th.centered, table td.centered {
 .note {
   font-style: italic;
   font-size: 80%;
-}
-li.well {
-  list-style-type: none;
-  margin-left: -10px;
 }
 
 
@@ -1334,10 +985,5 @@ select.time { width: 90px; }
 .pagination ul > li > a, .pagination ul > li > span {
   border-left-width: 1px;
 }
-
-label {
-  padding-right: 4px;
-}
-
 
 @import 'foundation';

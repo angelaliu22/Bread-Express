@@ -15,6 +15,9 @@
 //    font-size: 1.5em;
 //}
 
+body {
+    background-color: #f9f9f9;
+}
 .admin-homepage {
     width: 100%;
     height: 100%;
@@ -26,3 +29,64 @@
     border: 2px solid black;
     margin: 10px;
 }
+#main-content {
+    padding: 50px;
+    height: 800px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    min-height: 800px;
+    text-align: center;
+}
+#main-content h2 {
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+#main-content h2 {
+    font-size: 1em;
+    font-weight: 200;
+}
+#main-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 200;
+}
+.row {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+}
+.customer-homepage {
+    padding: 50px;
+    text-align: center;
+    width: 80%;
+    margin-right: 0;
+    height: 800px;
+}
+.customer-homepage p {
+    font-size: 1.2em;
+    font-weight: 200;
+}
+.customer-homepage p b {
+    color: rgb(140,28,35);
+}
+.customer-homepage h2 {
+    color: rgb(140,28,35);
+}
+.customer-homepage h3 {
+    padding-bottom: 40px;
+}
+.blurb {
+    font-size: 1.5em;
+}
+#login_or_register {
+    border: 2px solid rgb(140,28,35);
+    width: 40%;
+    margin: 0 auto;
+    background-color: rgba( 255, 255, 255, 0.8);
+}
+.customer-homepage .blurb {
+    width: 60%;
+    margin: 0 auto;
+}
+    

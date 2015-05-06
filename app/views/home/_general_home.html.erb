@@ -17,31 +17,39 @@
     </div>
         
 <% elsif logged_in? && current_user.role?(:customer) %>
-    <p>Welcome Back!</p>
+    <div class = " row customer-homepage">
+        <h2>Welcome To A &amp; M Bread Express!</h2>
+        <br />
+            <h3>Bread for all occasions, delivered to your doorstop!</h3>
+            <p><b>STEP 1:</b> <br>Create a customer account or log in if you're already an A&M member!</p>
+            <p><b>STEP 2:</b><br> Pick your breads and pastries.</p>
+            <p><b>STEP 3:</b> <br>Enter your address and payment information.</p>
+            <p><b>STEP 4:</b> <br>Place your order.</p>
+            <p><b>STEP 5:</b> <br>Go to bed, wake up, and enjoy delicious baked goods!</p>
+    </div>
 
 <% else %> 
-    <h2>Welcome To A &amp; M Bread Express</h2>
+    <h2>Welcome To A &amp; M Bread Express!</h2>
     <br />
     <div class="row customer-homepage">
         <div class="small-7 columns">
-            <p>
-                Bread Express is the smallest, but absolutely best, online bakery 
-                we know of.  You should order lots of our products now.  They are
-                delicious, nutritious and amazing in every way.  Why are you still 
-                reading this?  You should be ordering bread right now.  Stop reading 
-                and start ordering.  (Still reading? What are you waiting for?)
+            <p class = "blurb">
+                Bread Express is a bakery that delivers breads, muffins, and pastries straight out of mom's kitchen. The baked goods are made with the highest quality ingredients to ensure your enjoyment is complimented by the health benefits. 
             </p>
         </div>
         <div class="small-1 columns">
             &nbsp;
         </div>
         <div class="small-4 columns">
-            <div class="panel clearfix">
+            <div class="panel clearfix " id = "login_or_register">
                 <h3>Customers:</h3>
                 <p>
-                    If you are a registered user, 
-                  <%= link_to "click here to login", login_path %>. If you want 
-                  to create an account with us, <%= link_to "please click to register", signup_path %>.
+                    If you are a registered user, <br>
+                  <%= link_to "click here to login", login_path %>. 
+                    <br>
+                    <br>
+                    If you want 
+                  to create an account with us,<br> <%= link_to "please click to register", signup_path %>.
                 </p>
             </div>
         </div>

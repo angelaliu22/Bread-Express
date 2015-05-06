@@ -15,16 +15,16 @@
  */
 
 /*GENERAL*/
-
-#main_content {
-    font-size: 100%;
-    min-height: 580px;
-    width: 100%;
-    margin: 0 auto;
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: 200;
+    background-color: #f9f9f9;
 }
+
 #nav-panel {
     width: 10%;
-    background-color: #49A0D6;
+    background-color: rgb(91,158,233);
     height: 100%;
     text-align: left;
 }
@@ -36,6 +36,11 @@
     width: 100px;
     height: auto;
 }
+.greetings {
+    font-weight: 200;
+    font-size: 1em;
+    padding-top: 10px;
+}
 #header {
     font-size: 1.5em;
     font-weight: 100;
@@ -43,7 +48,6 @@
     width: 100%;
     text-align: center;
 }
-    
 /*INDEX PAGES*/
 
 .model-index {
@@ -65,7 +69,6 @@
 summary::-webkit-details-marker {
  color: #00ACF3;
  font-size: 125%;
- margin-right: 2px;
 }
 
 summary:focus {
@@ -173,18 +176,38 @@ details details summary {
 
 
 /*FOOTER*/
-
-footer {
-    height: 0;
-}
-.page-footer {
+#footer {
     position:relative;
     bottom: 0;
     text-align: center;
     height: auto;
-    color: white;
-    padding: 20px;
+    color: black;
+    font-weight: 300;
 }
-footer .copy {
+#footer a {
+    color: black;
+    font-weight: 300;
+}
+#footer .copy {
     font-size: 10px;
 }
+#footer .footer-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+#footer .footer-image {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+#footer .footer-image img {
+    max-width: 100%;
+}
+
+
+
+
+
+

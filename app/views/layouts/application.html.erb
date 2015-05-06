@@ -12,14 +12,11 @@
 
   <body>
     <div id="title_area">
-      <%= link_to image_tag('breadexpress_title.png'), home_path %>
         <% if logged_in? && (current_user.role?(:customer) || current_user.role?(:admin)) %>
         <% end %>
         <%= render :partial => "partials/nav" %>
         <% if logged_in? && current_user.role?(:customer)%>
-            <p>Welcome, <%= current_user.customer.first_name %> </p>
         <% elsif logged_in? && (current_user.role?(:admin) || current_user.role?(:baker) || current_user.role?(:shipper))%>
-        <p>Welcome, <%= current_user.username %> </p>
         <% else %>
         <% end %>
     </div>

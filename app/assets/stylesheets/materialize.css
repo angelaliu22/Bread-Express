@@ -5062,7 +5062,7 @@ span.badge {
 nav {
   color: #fff;
   background-color: rgb(138,75,52);
-  background-color: #BBDEFB;
+    background-color: rgba(91,158,233, 0.8);
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -5235,7 +5235,7 @@ html {
       font-size: 15px; } }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; }
+  font-weight: 300; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit; }
@@ -5266,8 +5266,13 @@ h5 {
   margin: 0.82rem 0 0.656rem 0; }
 
 h6 {
-  font-size: 1rem;
-  line-height: 1.1rem;
+  font-size: 1em;
+  line-height: 1.1em;
+  margin: 0.5rem 0 0.4rem 0; }
+
+p { 
+    font-size: 1.2em;
+  line-height: 1.5em;
   margin: 0.5rem 0 0.4rem 0; }
 
 em {

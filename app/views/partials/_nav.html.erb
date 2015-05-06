@@ -1,15 +1,21 @@
   <nav class="top-bar" data-topbar>
     <section class="top-bar-section">
+        <ul class = "left">
+            <%= link_to image_tag('breadexpress_title.png'), home_path %>
+        </ul>
       <ul class="right">
         <!-- link to home -->
-        <li><%= link_to "Home", home_path %></li>
           
         <% if !logged_in? %>
+            <li><%= link_to "Home", home_path %></li>
           <li><%= link_to "View Items", items_path %></li>
           <li><%= link_to "Login", login_path %></li>
           
         <% elsif logged_in? && (current_user.role?(:customer))%>
           <!-- options for orders -->
+          
+          <li class = "greetings" >Welcome, <%= current_user.customer.first_name %> </li>
+            <li><%= link_to "Home", home_path %></li>
           <li><%= link_to "View Items", items_path %></li>
     
           <li class="has-dropdown">
@@ -29,6 +35,7 @@
             <% end %>
         
         <% elsif logged_in? && (current_user.role?(:admin))%>
+          <li class = "greetings" >Welcome, <%= current_user.username %> </li>
           <!-- options for orders -->
             <li class="has-dropdown">
                 <%= link_to "Items", items_path %>
@@ -69,10 +76,13 @@
             <% end %>
           
       <% elsif logged_in? && (current_user.role?(:baker)) %> 
+          <li class = "greetings" >Welcome, <%= current_user.username %> </li>
         <li><%= link_to "View Items", items_path %></li>
         <li><%= link_to "Logout", logout_path %></li>
+          
         
       <% elsif logged_in? && (current_user.role?(:shipper)) %>
+          <li class = "greetings" >Welcome, <%= current_user.username %> </li>
         <li><%= link_to "View Items", items_path %></li>
         <li><%= link_to "Logout", logout_path %></li>
       <% else %>
