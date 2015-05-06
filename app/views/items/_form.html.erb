@@ -16,13 +16,12 @@
             <div class = "field">
                 <%= render :partial => "item_fields", :locals => { :f => item_form } %>
             </div>
-            
+            <br>
+            <div class="form-actions">
+                <%= item_form.submit nil, :class => 'button radius' %>
+                <%= link_to 'Cancel', home_path, :class => 'button secondary' %>
+            </div>
         </fieldset>
         </div> 
       </div>
-    </div>
-    <div class="form-actions">
-        <%= item_form.submit nil, :class => 'button radius' %>
-        <%= link_to 'Cancel', home_path, :class => 'button secondary' %>
-    </div>
   <% end %>

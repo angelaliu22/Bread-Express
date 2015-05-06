@@ -1,4 +1,5 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+
   <fieldset>
     <legend><%= controller.action_name.capitalize %> User</legend>
       <div class="field">
@@ -11,7 +12,7 @@
             <%= f.check_box :active %>
             <%= f.label :active %>
         </div>
-
+      <br>
     <div class="form-actions">
       <%= f.submit nil, :class => 'button radius' %>
       <%= link_to 'Cancel',users_path, :class => 'button alert radius' %>

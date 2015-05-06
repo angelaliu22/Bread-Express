@@ -1,22 +1,22 @@
 <div class = "dash_box" id = "items_to_bake">
     <p class = "dash-num"><%= link_to @num_items_to_bake, items_to_bake_path %></p>
-    <%= link_to "Items to Bake", items_to_bake_path %>
+    <h5><%= link_to "Items to Bake", items_to_bake_path %></h5>
 </div>
 
 <div class = "dash_box" id = "orders_to_ship">
     <p class = "dash-num"><%= link_to @num_unshipped_orders, orders_to_ship_path %></p>
-    <%= link_to "Orders to Ship", orders_to_ship_path %>
+    <h5><%= link_to "Orders to Ship", orders_to_ship_path %></h5>
 </div>
-
+<br>
 <div class = "dash_box" id = "num_active_users">
     <p class = "dash-num"><%= link_to @num_active_users, users_path %></p>
-    <%= link_to "Total Active Users", users_path %>
+    <h5><%= link_to "Active Users", users_path %></h5>
 </div>
 <div class = "dash_box" id = "num_inactive_users">
     <p class = "dash-num"><%= link_to @num_inactive_users, users_path %></p>
-    <%= link_to "Total Inactive Users", users_path %>
+    <h5><%= link_to "Inactive Users", users_path %></h5>
 </div>
 <div class = "dash_box" id = "num_customers">
     <p class = "dash-num"><%= link_to @num_customers, customers_path %></p>
-    <%= link_to "Total Customers", customers_path %>
+    <h5><%= link_to "Total Customers", customers_path %></h5>
 </div>

@@ -5,3 +5,38 @@
 .user_role select{
     display: inline;
 }
+.users-index {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+    margin: 50px;
+}
+.users-index h3 {
+    font-size: 2em;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+.users-index thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.new-user {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.new-user fieldset {
+    background-color: white;
+}
+.new-user .form-actions {
+    background-color: white;
+    width: 100%;
+    margin: 10px;
+}

@@ -50,3 +50,24 @@
 .related-items {
     background-color: rgba(91,158,233,0.2);
 }
+
+
+.new-item {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.new-item  fieldset {
+    background-color: white;
+}
+
+.new-item .form-actions {
+    background-color: white;
+    width: 100%;
+    margin: 10px;
+}
+

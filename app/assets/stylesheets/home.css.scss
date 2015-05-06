@@ -21,6 +21,7 @@ body {
 .homepage-welcome {
     font-size: 2em;
     font-weight: 200;
+    margin-bottom: 50px;
 }
 .homepage {
     padding: 50px;
@@ -59,17 +60,20 @@ body {
 }
 
 .admin-homepage .dash_box {
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
     border: 2px solid rgb(140,28,35);
     margin: 10px;
     display: inline-block;
 }
 .admin-homepage .dash-num {
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 400;
 }
-
+.admin-homepage h5 {
+    font-size: 2em;
+    font-weight: 200;
+}
 
 /*CUSTOMER HOMEPAGE */
 .customer-homepage {
