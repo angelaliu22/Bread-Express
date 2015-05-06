@@ -14,8 +14,13 @@
     <%= f.input :city, input_html: {class: "avg"} %>
     <%= f.input :state, collection: Address::STATES_LIST, include_blank: true, input_html: {class: "avg"} %>
     <%= f.input :zip, input_html: {class: "avg"} %>
-    <%= f.input :is_billing, label: 'Billing? ' %>
-    <%= f.input :active %>
+      
+      <div class = "address-form-checkboxes">
+        <%= f.check_box :is_billing %>
+        <%= f.label :is_billing, label: 'Billing? ' %>
+        <%= f.check_box :active %>
+        <%= f.label :active %>
+      </div>
 
 
     <div class="form-actions">

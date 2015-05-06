@@ -1,5 +1,5 @@
 <%= simple_form_for @item_price, html: { class: 'form-horizontal' } do |f| %>
-
+<div class = "item-price-form small-3 columns">
   <fieldset>
       <% if @item_price.errors.any? %>
             <div id="error_explanation">
@@ -21,4 +21,5 @@
             <%= f.submit nil, class: "btn submit-button" %>
         </div>
     </fieldset>
+</div>
 <% end %>

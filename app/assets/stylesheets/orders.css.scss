@@ -8,3 +8,114 @@
 #order_customer_id  {
     display: inline;
 }
+.orders-index {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.orders-index h3 {
+    font-size: 2em;
+    font-weight: 200;
+}
+.orders-index thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.add-item-links {
+    font-size: 0.7em;
+    text-align: center;
+}
+.view-cart {
+    padding: 50px;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.order-item-object {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    padding: 15px;
+}
+.order-item-object h3 {
+    font-family: 'Roboto';
+    font-size: 1.5em;
+    font-weight: 200;
+}
+
+.cart-items {
+    width: 100%;
+    background-color: rgba(91,158,233,0.2);
+}
+.remove-item .btn {
+    background-color: red;
+    font-size: 0.7em;
+}
+.checkout-cart {
+    padding: 50px;
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+    border: 1px solid black;
+    background-color: rgba(91,158,233,0.2);
+    float: left;
+    clear: left;
+    margin-bottom: 30px;
+}
+.checkout-cart h3 {
+    font-size: 2em;
+    font-weight: 200;
+}
+.checkout-cart h5 {
+    font-size: 1em;
+    font-weight: 200;
+}
+.order-summary-info {
+    float: right;
+    clear: right;
+    background-color: white;
+    border: 1px solid rgb(140,28,35);
+    padding: 15px;
+    margin: 15px;   
+}
+.order-summary-info p {
+    font-size: 1.2em;
+}
+
+.order-confirmation {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.order-confirmation h3 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+.order-details thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.order-details h3 {
+    font-size: 2em;
+    font-weight: 200;
+}
+
+.all-items {
+    background-color: rgba(91,158,233,0.2);
+}
+
+    

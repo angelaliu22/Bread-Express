@@ -1,23 +1,32 @@
-<h3><%= @customer.proper_name %></h3>
+<div class= "customer-details">
+    <h3><%= @customer.proper_name %></h3>
 
-<p>
-  <b>Phone</b>: <%= number_to_phone @customer.phone %>
-</p>
+    <p>
+      <b>Phone</b>: <%= number_to_phone @customer.phone %>
+    </p>
 
-<p>
-  <b>Email</b>: <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
-</p>
+    <p>
+      <b>Email</b>: <%= mail_to @customer.email, @customer.email, encode: "javascript" %>
+    </p>
 
-<p>
-  <b>Username</b>: <%= @customer.user.username %>
-</p>
-<p>
-    <b>Role</b>: <%= @customer.user.role %>
-</p>
-<p>
-  <b>Active</b>: <%= @customer.active ? 'Yes' : 'No' %>
-</p>
+    <p>
+      <b>Username</b>: <%= @customer.user.username %>
+    </p>
+    <p>
+        <b>Role</b>: <%= @customer.user.role %>
+    </p>
+    <p>
+      <b>Active</b>: <%= @customer.active ? 'Yes' : 'No' %>
+    </p>
 
-<p>
-  <em>A Bread Express customer since <%= @customer.created_at.year %>.</em>
-</p>
+    <p>
+      <em>A Bread Express customer since <%= @customer.created_at.year %>.</em>
+    </p>
+
+    <% if logged_in? && current_user.role?(:admin) %>
+        <!-- Add buttons to list all, edit project or destroy object -->
+        <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
+    <% elsif logged_in? && current_user.role?(:customer) %>
+        <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
+    <% end %>
+</div>

@@ -1,16 +1,35 @@
-<h3>Your Order </h3>
-<ul>
-    <% @cart_order_items.each do |order_item| %>
-        <% unless order_item.item.picture_url.nil? %>
-            <p><%= image_tag order_item.item.picture_url %></p> 
-        <% end %>
-        <li><%= link_to order_item.item.name, item_path(order_item.item) %></li>
-        <li><p>Quantity: </p> <%= order_item.quantity %></li>
-        <li><p>Subtotal: </p> <%= number_to_currency order_item.subtotal %></li>
-  <% end %>
-    <p>Order Subtotal: </p> <%=number_to_currency @cart_subtotal %>
-    <p>Shipping Cost: </p> <%=number_to_currency @order.shipping_costs %>
-    <p> Grand Total: </p> <%= number_to_currency (@cart_subtotal + @order.shipping_costs) %>
-    
-</ul>
+<div class = "checkout-cart">
+    <h3>Your Order </h3>
+    <ul>
+        <% @cart_order_items.each do |order_item| %>
+        <div class = "order-item-object">
+        <h5><%= order_item.item.name %></h5>
+            <% if order_item.item.picture_url.nil? %>
+            <li><%= image_tag 'image-placeholder.png' %></li>  
+            <% else %>
+                <li><%= image_tag order_item.item.picture_url %></li>  
+            <% end %>
+            <li>
+                <b>Price</b>: <%= number_to_currency order_item.item.current_price %>
+            </li>
+
+            <li>
+                <b>Units Per Item</b>: <%=  order_item.item.units_per_item %>
+            </li>
+            <li>
+                <b>Total weight:</b> <%= order_item.item.weight %>&nbsp;lbs.
+            </li>
+            <br>
+            <li><b>Quantity: </b><%= order_item.quantity %></li>
+            <li><b>Subtotal:</b> <%= number_to_currency order_item.subtotal %></li>
+        <li class = "remove-item"><%= link_to "Remove Item", remove_item_path(order_item.item.id), class: "btn alert" %></li>
+        </div>
+      <% end %>
+    </ul>
+    <div class = "order-summary-info">
+        <p><b>Order Subtotal:</b> <%=number_to_currency @cart_subtotal %></p>
+        <p><b>Shipping Cost:</b> <%=number_to_currency @order.shipping_costs %></p>
+        <p><b>Grand Total:</b> <%= number_to_currency (@cart_subtotal + @order.shipping_costs) %></p>
+    </div>
+</div>
 <%= render partial: 'checkout_order_info' %>

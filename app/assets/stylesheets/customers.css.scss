@@ -2,3 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.customer-show {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.customer-show .customer-details h3 {
+    font-size: 2em;
+    font-weight: 200;
+}

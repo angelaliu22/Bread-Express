@@ -27,12 +27,14 @@
                 <li><%= link_to "Logout", logout_path %></li>
             </ul>
           </li>
+          <li>
           <% unless empty_cart? %>
             <div class = "nav-cart">
                 <%= link_to image_tag('cart.png'), view_cart_path %>
                 <%= num_items_in_cart %>
             </div>
             <% end %>
+            </li>
         
         <% elsif logged_in? && (current_user.role?(:admin))%>
           <li class = "greetings" >Welcome, <%= current_user.username %> </li>
@@ -66,14 +68,14 @@
             </ul>
           </li>
           <li><%= link_to "Logout", logout_path %></li>
-          
-          
+          <li>
           <% unless empty_cart? %>
             <div class = "nav-cart">
                 <%= link_to image_tag('cart.png'), view_cart_path %>
                 <%= num_items_in_cart %>
             </div>
             <% end %>
+            </li>
           
       <% elsif logged_in? && (current_user.role?(:baker)) %> 
           <li class = "greetings" >Welcome, <%= current_user.username %> </li>

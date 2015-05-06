@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row customer-show">
   <div class="small-7 columns">
     <%= render partial: "customer_details" %>
   </div>
@@ -6,10 +6,3 @@
       <%= render partial: "partials/index_structure", locals: {model_name: "order", primary: "orders/customer_pending_orders", secondary: "orders/customer_past_orders", sidebar: nil} %>
   </div>
 </div>
-
-<% if logged_in? && current_user.role?(:admin) %>
-    <!-- Add buttons to list all, edit project or destroy object -->
-    <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
-<% elsif logged_in? && current_user.role?(:customer) %>
-    <%= render partial: "partials/object_options", locals: {model_name: "customer", object: @customer}  %>
-<% end %>

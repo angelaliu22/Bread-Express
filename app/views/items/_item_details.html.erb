@@ -1,21 +1,38 @@
-<h3><b><%= @item.name %></b></h3>
-<% unless @item.picture_url.nil? %>
-    <p><%= image_tag @item.picture_url %></p>
-<% end %>
-<p>
-    <b>Price</b>: <%= number_to_currency @item.current_price %>
-</p>
-<p>
-    <b>Description</b>: <%=  @item.description %>
-</p>
+<div class = "item-details small-7 columns">
+    <h3><%= @item.name %></h3>
+    <% if @item.picture_url.nil? %>
+    <p><%= image_tag 'image-placeholder.png' %></p>  
+    <% else %>
+        <p><%= image_tag @item.picture_url %></p>  
+    <% end %>
+    <p>
+        <b>Price</b>: <%= number_to_currency @item.current_price %>
+    </p>
+    <p>
+        <b>Description</b>: <%=  @item.description %>
+    </p>
 
-<p>
-    <b>Units Per Item</b>: <%=  @item.units_per_item %>
-</p>
-<p>
-    <b>Total weight:</b> <%= @item.weight %>&nbsp;lbs.
-</p>
+    <p>
+        <b>Units Per Item</b>: <%=  @item.units_per_item %>
+    </p>
+    <p>
+        <b>Total weight:</b> <%= @item.weight %>&nbsp;lbs.
+    </p>
+    <div class = "item-show-page-buttons">
+        <% if logged_in? && current_user.role?(:admin) %>
+            <!-- Add buttons to list all, edit project or destroy object -->
+        <%= link_to "Add to Cart", add_item_path(@item.id), class: "btn tiny" %>
+        <%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>
 
-<% if logged_in? && current_user.role?(:admin) %>
-    <% render partial: 'item_price_history' %>
-<% end %>
+        <%= render partial: 'item_price_history' %>
+
+        <% elsif logged_in? && current_user.role?(:customer) %>
+        <%= link_to "Add to Cart", add_item_path(@item.id), class: "btn tiny" %>
+        <% else %>
+
+        <% end %>
+    </div>
+    <% if logged_in? && current_user.role?(:admin) %>
+        <% render partial: 'item_price_history' %>
+    <% end %>
+</div>

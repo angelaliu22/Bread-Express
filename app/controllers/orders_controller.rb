@@ -75,6 +75,7 @@ class OrdersController < ApplicationController
         add_item_to_cart(params[:id])
         flash[:notice] = "Item has been added to your cart!"
         @related_items = Item.for_category(Item.find_by_id(params[:id]).category).paginate(:page => params[:page]).per_page(10)
+        @item = Item.find_by_id(params[:id])
     end
     
     def remove_item

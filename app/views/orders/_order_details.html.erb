@@ -1,21 +1,23 @@
-<h3>Order Details</h3>
+<div class = "order-details">
+    <h3>Order Details</h3>
 
-<p>
-  <b>Date</b>: <%= @order.date.strftime('%B %e, %Y') %>
-</p>
+    <p>
+      <b>Date</b>: <%= @order.date.strftime('%B %e, %Y') %>
+    </p>
 
-<p>
-  <b>Recipient</b>: <%= link_to @order.address.recipient, address_path(@order.address) %>
-</p>
+    <p>
+      <b>Recipient</b>: <%= link_to @order.address.recipient, address_path(@order.address) %>
+    </p>
 
-<p>
-    <%= render partial: 'order_items', locals: {order_items: @cart_order_items}%>
-</p>
+    <p>
+        <%= render partial: 'order_items', locals: {order_items: @cart_order_items}%>
+    </p>
 
-<p>
-  <b>Shipping Costs</b>: <%= number_to_currency @order.shipping_costs %>
-</p>
+    <p>
+      <b>Shipping Costs</b>: <%= number_to_currency @order.shipping_costs %>
+    </p>
 
-<p>
-  <b>Total Cost</b>: <%= number_to_currency @order.grand_total %>
-</p>
+    <p>
+      <b>Total Cost</b>: <%= number_to_currency @order.grand_total %>
+    </p>
+</div>

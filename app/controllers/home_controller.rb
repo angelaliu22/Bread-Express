@@ -5,8 +5,12 @@ class HomeController < ApplicationController
       @num_items_to_bake = OrderItem.unshipped.length
       @items_to_bake = OrderItem.unshipped.paginate(:page => params[:page]).per_page(10)   
       
-      @num_unshipped_orders = Order.not_shipped
+      @num_unshipped_orders = Order.not_shipped.length
       @unshipped_orders = Order.not_shipped.paginate(:page => params[:page]).per_page(10)
+      
+      @num_active_users = User.active.length
+      @num_inactive_users = User.inactive.length
+      @num_customers = Customer.all.length
 
   end
     

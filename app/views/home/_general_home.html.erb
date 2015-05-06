@@ -1,18 +1,18 @@
 <% if logged_in? && current_user.role?(:admin) %>
     <div class = "row admin-homepage">
-        <p>Here is a dashboard of the current status of Bread Express</p>
+        <h3 class = "homepage-welcome">Here is a dashboard of the current status of Bread Express</h3>
         <%= render partial: 'admin_homepage' %>
     </div>
 
 <% elsif logged_in? && current_user.role?(:baker) %>
     <div class = "row baker-homepage">
-        <p>Here are all the items that need to be baked</p>
+        <h3 class = "homepage-welcome">Here are all the items that need to be baked</h3>
         <%= render partial: 'baker_homepage' %>
     </div>
 
 <% elsif logged_in? && current_user.role?(:shipper) %>
     <div class = "row shipper-homepage">
-        <p>Here are all the orders that need to be shipped</p>
+        <h3 class = "homepage-welcome">Here are all the orders that need to be shipped</h3>
         <%= render partial: 'shipper_homepage' %>
     </div>
         
@@ -29,9 +29,9 @@
     </div>
 
 <% else %> 
+<div class="row homepage">
     <h2>Welcome To A &amp; M Bread Express!</h2>
     <br />
-    <div class="row customer-homepage">
         <div class="small-7 columns">
             <p class = "blurb">
                 Bread Express is a bakery that delivers breads, muffins, and pastries straight out of mom's kitchen. The baked goods are made with the highest quality ingredients to ensure your enjoyment is complimented by the health benefits. 
@@ -41,7 +41,7 @@
             &nbsp;
         </div>
         <div class="small-4 columns">
-            <div class="panel clearfix " id = "login_or_register">
+            <div class="panel clearfix " class = "login_or_register">
                 <h3>Customers:</h3>
                 <p>
                     If you are a registered user, <br>

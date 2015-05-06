@@ -20,6 +20,7 @@ body {
     font-size: 1em;
     font-weight: 200;
     background-color: #f9f9f9;
+    overflow-x: hidden;
 }
 
 #nav-panel {
@@ -32,9 +33,12 @@ body {
     color: white;
     text-decoration: none;
 }
+.nav-cart {
+    padding-right: 15px;
+}
 .nav-cart img {
-    width: 100px;
-    height: auto;
+    width: auto;
+    height: 40px;
 }
 .greetings {
     font-weight: 200;
@@ -48,6 +52,10 @@ body {
     width: 100%;
     text-align: center;
 }
+.alert-box {
+    margin-top: 50px;
+}
+
 /*INDEX PAGES*/
 
 .model-index {
@@ -183,6 +191,8 @@ details details summary {
     height: auto;
     color: black;
     font-weight: 300;
+    margin-top: 150px;
+    margin-left: -15px;
 }
 #footer a {
     color: black;
