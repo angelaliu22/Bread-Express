@@ -1,4 +1,5 @@
-<h3>Bread Express Available Items</h3>
+<div class = "item-index">
+<h1>Bread Express Available Items</h1>
 <% if @all_items.empty? %>
     <h3>No active items at this time</h3>
 <% else %>
@@ -8,3 +9,4 @@
 
     <%= render :partial => "item_list", locals: {items: @pastry_items, type: "Pastries"} %>
 <% end %>
+</div>

@@ -1,3 +1,24 @@
 .item_category select{
     display: inline;
 }
+.item-index {
+    font-family: 'Roboto';
+    margin-top: 50px;
+}
+.item-index h1 {
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+}
+.item-list {
+    width: 90%;
+}
+.item-list h3 {
+    font-weight: 200;
+}
+.item-object {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    padding: 15px;
+}
