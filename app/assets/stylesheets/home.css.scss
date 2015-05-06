@@ -105,3 +105,33 @@ body {
     width: 60%;
     margin: 0 auto;
 }
+.baker-homepage {
+    padding: 50px;
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    min-height: 800px;
+    text-align: center;
+}
+.baker-homepage thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.baker-homepage li {
+    list-style-type: none;
+}
+.shipper-homepage {
+    padding: 50px;
+    height: 500px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    min-height: 800px;
+    text-align: center;
+}
+.shipper-homepage thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.shipper-homepage li {
+    list-style-type: none;
+}
