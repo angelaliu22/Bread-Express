@@ -1,0 +1,56 @@
+// Place all the styles related to the addresses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.address_state select{
+    display: inline;
+}
+.address_active input {
+    height: 10px;
+}
+.address-index {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.address-index h3 {
+    font-size: 2em;
+    font-weight: 200;
+}
+.address-index thead {
+    background-color: rgba(91,158,233,0.2);
+}
+.new-address {
+    padding: 50px;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+.display-form {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.display-form fieldset {
+    background-color: white;
+}
+.address-form-checkboxes {
+    width: 70%;
+    height: 50px;
+    background-color: white;
+    margin-bottom: 10px;
+    float: right;
+    clear: right;
+    padding-right: 20px;
+}
+.new-address .form-actions {
+    background-color: white;
+    width: 100%;
+    margin: 10px;
+}
